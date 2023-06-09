@@ -12,7 +12,6 @@ const getDogsByName = async (req, res) => {
         where: { name: { [Op.iLike]: `%${name}%` } },
     });
 
-
     const imageRequest = async (imageEndpoint) => {
         try {
             const response = await axios.get(imageEndpoint);

@@ -12,25 +12,19 @@ const getDogDetails = async (req, res) => {
 
     if (regexExpUUID.test(id)) {
         try {
-            const foundDog = await Dog.findOne({ where: { id } });
-            const dogTemps = await dog_temperament.findAll({
-                where: { dogId: id },
+            let dog = await Dog.findOne({ 
+                where: { id },
+                include: {
+                    model: Temperament,
+                    through: {
+                        attributes: []
+                    }
+                }
             });
-            const idTemps = dogTemps.map((obj) => obj.dataValues.temperamentId);
-            const temps = await Promise.all(
-                idTemps.map(async (e) => {
-                    const tempName = await Temperament.findByPk(e);
-                    return tempName.dataValues.name;
-                })
-            );
-            foundDog.dataValues.temperament = temps.join(", ");
-
-            if (!foundDog)
-                return res.status(404).send("No existe ningun perro con ese id");
-
-            return res.json(foundDog);
+            dog.dataValues.temperaments = dog.temperaments.map(temp => (temp.name)).join(', ')
+            return res.json(dog);
         } catch (error) {
-            return res.status(500).send(error.message);
+            return res.status(500).send(error.message)
         }
     }
 
@@ -46,7 +40,7 @@ const getDogDetails = async (req, res) => {
             weight: findDog.weight.metric,
             height: findDog.height.metric,
             life_span: findDog.life_span,
-            temperament: findDog.temperament,
+            temperaments: findDog.temperament,
         };
         return res.json(foundDog);
     } catch (error) {

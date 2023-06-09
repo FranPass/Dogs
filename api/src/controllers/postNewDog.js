@@ -4,15 +4,17 @@ const postNewDog = async (req, res) => {
     try {
         const { name, height, weight, life_span, temperaments } = req.body;
 
-        if (!name || !height || !weight || !life_span) return res.status(400).send("Faltan datos");
-        
-        if (!temperaments.length) return res.status(400).send("Selecciona al menos un temperamento");
+        if (!name || !height || !weight || !life_span)
+            return res.status(400).send("Faltan datos");
+
+        if (!temperaments.length)
+            return res.status(400).send("Selecciona al menos un temperamento");
 
         const [newDog] = await Dog.findOrCreate({
             where: { name, height, weight, life_span },
         });
-        
-        for(let i = 0 ; i < temperaments.length ; i++){
+
+        for (let i = 0; i < temperaments.length; i++) {
             const temperament = await Temperament.findByPk(temperaments[i]);
             await newDog.addTemperament(temperament);
         }

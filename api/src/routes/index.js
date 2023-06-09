@@ -11,7 +11,6 @@ const router = Router();
 
 router.get('/dogs', getDogs)
 router.get('/dogs/?name', getDogsByName)
-// router.get('/dogs', getDogsPromiseAll)
 router.post('/dogs', postNewDog)
 router.get('/dogs/:id', getDogDetails)
 router.get('/temperaments', getTemperaments)
