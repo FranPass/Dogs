@@ -1,13 +1,14 @@
+/* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
-import './LandingPage.module.css'
+import style from './LandingPage.module.css'
 
-export default function LandingPage () {
+export default function LandingPage({onClick}) {
 
     return (
-        <div>
-            <h1>It’s alive!</h1>
+        <div className={style.div}>
+            <h1>Mundo de perros</h1>
             <NavLink to="/Home">
-                <button >Home</button>
+                <button onClick={() => {onClick()}} >Home</button>
             </NavLink>
         </div>
     )
