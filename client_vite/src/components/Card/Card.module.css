@@ -1,62 +1,71 @@
 .container {
-    background-color: rgb(39, 112, 19);
+    /* background-color: rgb(39, 112, 19);
     position: relative;
-    width: 210px;
-    height: 370px;
     border-radius: 13px;
-    /* margin: 3px; */
+    margin: 3px;
     margin-bottom: 50px;
     font-family: monospace;
-    font-size: 14px;
     font-weight: bold;
     text-shadow: 2px 2px 5px rgb(8, 175, 8);
-    box-shadow: inset -3px -3px 5px rgb(89,232,33);
     opacity: 0.9; 
-    /* transform: scale(1);  */
-    transition: 500ms; 
+    transform: scale(1);  
+    box-shadow: inset -3px -3px 5px rgb(89,232,33);
+    font-size: 14px;
+    transition: 500ms;   */
+    width: 210px;
+    height: 370px;
+    
+    flex: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
-.container:hover {
+/* .container:hover {
     opacity: 1.0;
     transform: scale(1.25);
     z-index: 200;
-  }
+  } */
 
 .nombre {
     display: inline-block;
-    top: 3px;
-    color: rgb(226, 236, 229);
+    /* top: 3px; */
+    color: rgb(21, 24, 22);
     background-position: center;
-    font-family: 'get_schwifty';
+    /* font-family: 'get_schwifty'; */
     font-size: 15px;
     font-weight: bold;
-    text-align: center;
-    text-shadow: 0 0 2px rgb(182, 26, 14), 0 0 6px #0000ff; 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 65%;
+    height: 30px;
+    line-height: 15px;
+    /* text-shadow: 0 0 2px rgb(182, 26, 14), 0 0 6px #0000ff;  */
+    /* white-space: nowrap; */
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+    width: 80%; 
   }
 
-  .nombre:hover {
+  /* .nombre:hover {
     color: rgb(216, 92, 21);
-  }
+  } */
 
 .imageCard {
-    position: relative;
-    top: -8px;
+    /* position: relative; */
+    /* top: -8px; */
     width: 195px;
+    height: 130px;
     border: 1px solid black;
     box-shadow: 0 0 10px black;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 
 .descripcion {
-    color: rgb(237, 248, 248);
+    /* color: rgb(237, 248, 248); */
     margin: 10px;
-    margin-top: -15px;
+    font-size: 15px;
+    /* margin-top: -15px; */
     text-align: left;
+    height: 150px;
     overflow: hidden;
     text-overflow: ellipsis;
-    line-height: 12px;
+    line-height: 15px;
 }
