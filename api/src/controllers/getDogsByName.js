@@ -1,6 +1,6 @@
 const { Dog } = require("../db");
 const axios = require("axios");
-const URL = "https://api.thedogapi.com/v1/breeds";
+const URLsearch = "https://api.thedogapi.com/v1/breeds/search?q=";
 var Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const { API_KEY } = process.env;
@@ -8,8 +8,9 @@ const headers = { "x-api-key": API_KEY };
 
 const getDogsByName = async (req, res) => {
     const { name } = req.query;
+
     const allDogsDb = await Dog.findAll({
-        where: { name: { [Op.iLike]: `%${name}%` } },
+    where: { name: { [Op.iLike]: `%${name}%` } },
     });
 
     const imageRequest = async (imageEndpoint) => {
@@ -22,8 +23,8 @@ const getDogsByName = async (req, res) => {
     };
 
     try {
-        const response = await axios.get(`${URL}/search?q=${name}`, {headers});
-
+        const response = await axios.get(`${URLsearch}${name}`, {headers});
+        
         const allDogsApi = await Promise.all(response.data.map(async (dog) => {
             const imageEndpoint = `https://api.thedogapi.com/v1/images/${dog.reference_image_id}`;
             const imageURL = await imageRequest(imageEndpoint);
@@ -38,6 +39,7 @@ const getDogsByName = async (req, res) => {
                 temperament: dog.temperament,
             };
         }));
+
         const allDogs = [...allDogsApi, ...allDogsDb];
         if (!allDogs.length)
             return res.status(404).send("No hay coincidencias");

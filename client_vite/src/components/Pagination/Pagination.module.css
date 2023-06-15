@@ -1,0 +1,10 @@
+.pagination{
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin: 20px;
+}
+li{
+    display: inline;
+    text-align: center;
+}

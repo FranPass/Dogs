@@ -6,18 +6,15 @@ const getTemperaments = (req, res) => {
     axios
         .get(`${URL}`)
         .then(async (response) => {
-            const repetedTemperaments = response.data
-                .map((dog) => dog.temperament)
-                .join(", ")
-                .split(", ");
-
+            const repetedTemperaments = response.data.map((dog) => dog.temperament).join(", ").split(", ");
+            
             const setOfTemperaments = new Set(repetedTemperaments);
+            const temperaments = []
+            setOfTemperaments.forEach(temp => temp !== '' && temperaments.push({name: temp}))
+            
+            await Temperament.bulkCreate(temperaments);
 
-            await Temperament.bulkCreate(setOfTemperaments);
-
-            return res
-                .status(200)
-                .send("¡Temperamentos agregados exitosamente!");
+            return res.status(200).send("¡Temperamentos agregados exitosamente!");
         })
         .catch((error) => res.status(500).send(error.message));
 };

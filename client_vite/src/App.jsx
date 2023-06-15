@@ -1,9 +1,10 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import "./App.css";
-import DogsList from "./components/DogsList/DogsList.jsx"
+// import "./App.css";
+import Home from './components/Home/Home'
 import Detail from "./components/Detail/Detail.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import LandingPage from "./components/LandingPage/LandingPage.jsx";
+import CreateForm from "./components/CreateForm/CreateForm"
 
 function App() {
     const { pathname } = useLocation();
@@ -18,8 +19,9 @@ function App() {
                         path="/"
                         element={<LandingPage />}
                     />
-                    <Route path="/home" element={<DogsList />} />
+                    <Route path="/home" element={<Home />} />
                     <Route path="/detail/:id" element={<Detail />} />
+                    <Route path="/create" element={<CreateForm />} />
                 </Routes>
             </div>
         </>

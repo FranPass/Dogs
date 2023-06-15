@@ -1,4 +1,4 @@
-const { Dog, Temperament, dog_temperament } = require("../db");
+const { Dog, Temperament } = require("../db");
 const axios = require("axios");
 const URL = "https://api.thedogapi.com/v1/breeds";
 const { API_KEY } = process.env;
@@ -29,10 +29,10 @@ const getDogDetails = async (req, res) => {
     }
 
     try {
-        const response = await axios.get(`${URL}`, { headers });
-        const findDog = response.data.find((dog) => dog.id === Number(id));
+        const {data} = await axios.get(`${URL}`, { headers });
+        const findDog = data.find((dog) => dog.id === Number(id));
         if (!findDog)
-            return res.status(404).send("No existe ningun perro con ese id");
+            return res.status(404).json({error: "No existe ningun perro con ese id"});
         const foundDog = {
             id: id,
             image: findDog.image.url,

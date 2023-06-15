@@ -1,71 +1,40 @@
 .container {
-    /* background-color: rgb(39, 112, 19);
-    position: relative;
-    border-radius: 13px;
-    margin: 3px;
-    margin-bottom: 50px;
-    font-family: monospace;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgb(8, 175, 8);
-    opacity: 0.9; 
-    transform: scale(1);  
-    box-shadow: inset -3px -3px 5px rgb(89,232,33);
-    font-size: 14px;
-    transition: 500ms;   */
-    width: 210px;
-    height: 370px;
-    
-    flex: 25%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-/* .container:hover {
-    opacity: 1.0;
-    transform: scale(1.25);
-    z-index: 200;
-  } */
-
-.nombre {
-    display: inline-block;
-    /* top: 3px; */
-    color: rgb(21, 24, 22);
-    background-position: center;
-    /* font-family: 'get_schwifty'; */
-    font-size: 15px;
-    font-weight: bold;
-    height: 30px;
-    line-height: 15px;
-    /* text-shadow: 0 0 2px rgb(182, 26, 14), 0 0 6px #0000ff;  */
-    /* white-space: nowrap; */
-    /* overflow: hidden;
-    text-overflow: ellipsis; */
-    width: 80%; 
-  }
-
-  /* .nombre:hover {
-    color: rgb(216, 92, 21);
-  } */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  gap: 1em;
+  margin: 0;
+  width: 400px;
+  height: 200px;
+  overflow: hidden;
+  background: linear-gradient(#f69d3c, #3f87a6);
+  box-shadow: 1px 1px 5px black;
+  font-size: 12px;
+}  
 
 .imageCard {
-    /* position: relative; */
-    /* top: -8px; */
-    width: 195px;
-    height: 130px;
-    border: 1px solid black;
-    box-shadow: 0 0 10px black;
-    /* border-radius: 50%; */
+  filter: brightness(90%);
 }
 
-.descripcion {
-    /* color: rgb(237, 248, 248); */
-    margin: 10px;
-    font-size: 15px;
-    /* margin-top: -15px; */
-    text-align: left;
-    height: 150px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 15px;
+.imageCard img {
+  float: left;
+  flex: 2 1 0%;
+  object-fit: cover;
+  object-fit: cover;
+  max-width: 250px;
+  height: 200px;  
+}
+.imageCard:hover {
+  filter: brightness(100%);
+}
+
+.description {
+  width: auto;
+  margin-top: 0;
+  margin: 6px;
+  text-align: left;
+  color: black;
+  height: 125px;
+  line-height: 13px;
 }
