@@ -1,7 +1,59 @@
 .containerForm {
+    height: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
-    justify-content: center;
     color: black;
+    text-align: center;
+    font-size: large;
+    background: radial-gradient(circle, rgb(230, 173, 126) 0%, rgba(255,255,255,0) 50%);
+    background-color: rgb(255, 235, 205, 0.5);
+    margin: auto;
+    margin-top: 55px;
+    width: 900px;
+    border-radius: 20px;
+}
+.containerForm h3 {
+    margin: 10px;
+}
+.dog {
+    width: inherit;
+    background-image: url('silueta_dog.png');
+    background-repeat: no-repeat;
+    background-position: 50% 60%;
+    background-size: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.dogInfo {
+    /* float: left; */
+    width: 350px;
+    margin-left: 15px;
+}
+
+.temperaments {
+    /* float: left; */
+    width: 380px;
+    /* margin-left: 15px; */
+}
+
+.inputName {
+    width: 250px;
+}
+
+.submitbutton {
+    margin: 10px;
+}
+
+input {
+    width: 40px;
+    height: 25px;    
+    font-size: large;
+}
+
+.inputBars {
+    display: flex;
+    justify-content: space-evenly;
 }

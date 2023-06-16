@@ -3,6 +3,9 @@ const axios = require("axios");
 const URL = "https://api.thedogapi.com/v1/breeds";
 
 const getTemperaments = (req, res) => {
+
+
+
     axios
         .get(`${URL}`)
         .then(async (response) => {
@@ -14,7 +17,7 @@ const getTemperaments = (req, res) => {
             
             await Temperament.bulkCreate(temperaments);
 
-            return res.status(200).send("¡Temperamentos agregados exitosamente!");
+            return res.status(200).json({temperaments: [...setOfTemperaments]});
         })
         .catch((error) => res.status(500).send(error.message));
 };

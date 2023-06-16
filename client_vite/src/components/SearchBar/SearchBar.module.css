@@ -1,0 +1,24 @@
+.search {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 10px;
+}
+
+.searchBar {
+    width: fit-content;
+    background-color: bisque;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    height: 30px;
+    border: 2px solid rgb(139, 73, 12);
+}
+
+.searchBtn {
+    border: 2px solid rgb(38, 92, 194);
+    background-color: rgb(186, 209, 252);
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+    height: 30px;
+    font-weight: bold;
+}
