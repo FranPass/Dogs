@@ -3,10 +3,9 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
-  gap: 1em;
   margin: 0;
   width: 400px;
-  height: 200px;
+  height: 180px;
   overflow: hidden;
   background: linear-gradient(#f69d3c, #3f87a6);
   box-shadow: 1px 1px 5px black;
@@ -16,25 +15,25 @@
 .imageCard {
   filter: brightness(90%);
 }
+.imageCard:hover {
+  filter: brightness(100%);
+}
 
 .imageCard img {
   float: left;
   flex: 2 1 0%;
   object-fit: cover;
-  object-fit: cover;
   max-width: 250px;
-  height: 200px;  
-}
-.imageCard:hover {
-  filter: brightness(100%);
+  width: auto;
+  height: 180px;  
 }
 
 .description {
-  width: auto;
+  /* width: auto; */
   margin-top: 0;
   margin: 6px;
   text-align: left;
   color: black;
-  height: 125px;
+  /* height: 125px; */
   line-height: 13px;
 }

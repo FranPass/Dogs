@@ -1,6 +1,8 @@
 import style from "./CreateForm.module.css";
 
 export default function CreateForm() {
+    const a = ["Height", "Weight", "Life Span"];
+
     return (
         <form className={style.containerForm}>
             <div className={style.dog}>
@@ -14,48 +16,36 @@ export default function CreateForm() {
                         type="text"
                     />
                     <hr />
-                    <div>
-                        <h3>Height</h3>
-                        <div className={style.inputBars}>
-                            <div>
-                                <label htmlFor="min_height">Min:</label>
-                                <input name="min_height" type="number" />
+                    {a.map((e, index) => {
+                        return (
+                            <div key={index}>
+                                <h3>{e}</h3>
+                                <div className={style.inputBars}>
+                                    <div>
+                                        <label htmlFor={`min_${e.toLowerCase().replace(" ", "_")}`}>
+                                            Min:
+                                        </label>
+                                        <input
+                                            name={`min_${e.toLowerCase().replace(" ", "_")}`}
+                                            type="number"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label htmlFor={`max${e.toLowerCase().replace(" ", "_")}`}>
+                                            Max:
+                                        </label>
+                                        <input
+                                            name={`max${e.toLowerCase().replace(" ", "_")}`}
+                                            type="number"
+                                        />
+                                    </div>
+                                </div>
+                                <hr />
                             </div>
-                            <div>
-                                <label htmlFor="max_height">Min:</label>
-                                <input name="max_height" type="number" />
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div>
-                        <h3>Weight</h3>
-                        <div className={style.inputBars}>
-                            <div>
-                                <label htmlFor="min_weight">Min:</label>
-                                <input name="min_weight" type="number" />
-                            </div>
-                            <div>
-                                <label htmlFor="max_weight">Min:</label>
-                                <input name="max_weight" type="number" />
-                            </div>
-                        </div>
-                    </div>
-                    <hr />
-                    <div>
-                        <h3>Life span</h3>
-                        <div className={style.inputBars}>
-                            <div>
-                                <label htmlFor="min_life_span">Min:</label>
-                                <input name="min_life_span" type="number" />
-                            </div>
-                            <div>
-                                <label htmlFor="max_life_span">Min:</label>
-                                <input name="max_life_span" type="number" />
-                            </div>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
+
                 <div className={style.temperaments}>
                     <h3>Temperaments</h3>
                     <div>

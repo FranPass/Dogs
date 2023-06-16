@@ -7,8 +7,9 @@
     color: black;
     text-align: center;
     font-size: large;
-    background: radial-gradient(circle, rgb(230, 173, 126) 0%, rgba(255,255,255,0) 50%);
-    background-color: rgb(255, 235, 205, 0.5);
+    /* background: radial-gradient(circle, rgb(230, 173, 126) 0%, rgba(255,255,255,0) 50%); */
+    /* background-color: rgb(255, 235, 205, 0.5); */
+    background: linear-gradient(#f69d3c, #3f87a6);
     margin: auto;
     margin-top: 55px;
     width: 900px;
