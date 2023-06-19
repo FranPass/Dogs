@@ -1,5 +1,4 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-// import "./App.css";
 import Home from './components/Home/Home'
 import Detail from "./components/Detail/Detail.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";

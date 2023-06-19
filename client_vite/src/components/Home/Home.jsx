@@ -24,8 +24,8 @@ export default function Home() {
     const numOfDogs = dogsToShow.length;
 
     const dogsList = async () => {
-        const response = await axios.get("http://localhost:3001/dogs/");
-        setAllDogs(() => [...response.data]);
+        const {data} = await axios.get("http://localhost:3001/dogs/");
+        setAllDogs(() => [...data]);
     };
 
     useEffect(() => {
@@ -38,10 +38,10 @@ export default function Home() {
             console.log(alert("No hay nada escrito"));
         }
         else {
-            const response = await axios.get(
+            const {data} = await axios.get(
                 `http://localhost:3001/dogs/?name=${name}`
                 );
-            setDogsByName(() => [...response.data]);
+            setDogsByName(() => [...data]);
         }
         };
 

@@ -1,24 +1,26 @@
 .search {
     display: flex;
-    flex-direction: row;
     flex-wrap: nowrap;
     margin: 10px;
+    align-items: center;
 }
 
 .searchBar {
-    width: fit-content;
-    background-color: bisque;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border: none;
+    box-shadow: inset 1px 1px 4px;
+    border-radius: 5px 0 0 5px;
     height: 30px;
-    border: 2px solid rgb(139, 73, 12);
 }
 
 .searchBtn {
-    border: 2px solid rgb(38, 92, 194);
-    background-color: rgb(186, 209, 252);
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border: 1px solid transparent;
+    box-shadow: 1px 1px 4px;
+    border-radius: 0 5px 5px 0;
     height: 30px;
     font-weight: bold;
+}
+.searchBtn:hover:enabled {
+    background-color: antiquewhite;
+    color: black;
+    border: none;
 }

@@ -14,6 +14,7 @@
     margin-top: 55px;
     width: 900px;
     border-radius: 20px;
+    box-shadow: 0 0 5px rgb(0, 0, 0); 
 }
 .containerForm h3 {
     margin: 10px;
@@ -22,39 +23,84 @@
     width: inherit;
     background-image: url('silueta_dog.png');
     background-repeat: no-repeat;
-    background-position: 50% 60%;
+    background-position: 46% 60%;
     background-size: 20%;
     display: flex;
     justify-content: space-between;
 }
 
 .dogInfo {
-    /* float: left; */
     width: 350px;
     margin-left: 15px;
 }
 
-.temperaments {
-    /* float: left; */
-    width: 380px;
-    /* margin-left: 15px; */
-}
-
 .inputName {
     width: 250px;
+    box-shadow: inset 0 0 5px grey; 
+}
+
+.inputNums {
+    display: flex;
+    justify-content: space-evenly;   
+    font-size: large;
+}
+.inputNums input {
+    width: 40px;
+    height: 25px; 
+    box-shadow: inset 0 0 5px grey; 
+}
+
+
+.temperaments {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 380px;
+}
+
+.temperamentsList {
+    width: 330px;
+    height: 225px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10px 5px 5px 10px;
+    padding: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    box-shadow: inset 0 0 5px grey; 
+}
+.selectedTemperamentsList {
+    width: 330px;
+    height: auto;
+    min-height: 40px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid black;
+    border-radius: 10px 5px 5px 10px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    box-shadow: inset 0 0 5px grey; 
+}
+
+.temp {
+    filter: grayscale();
+    background: linear-gradient(0.25turn, #fad2a8, #89c2da);
+    font-size: small;
+    margin: 1px;
+}
+.temp:hover:enabled {
+    filter: none;
+    color: black;
+    font-weight: bold;
+    /* font-size: medium; */
 }
 
 .submitbutton {
     margin: 10px;
-}
-
-input {
-    width: 40px;
-    height: 25px;    
-    font-size: large;
-}
-
-.inputBars {
-    display: flex;
-    justify-content: space-evenly;
 }

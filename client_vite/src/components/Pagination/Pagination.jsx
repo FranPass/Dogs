@@ -25,11 +25,11 @@ export default function Pagination({
     };
 
     return (
-        <nav className={style.pagination} >
+        <nav className={style.pagination}>
             <li>
-            <button onClick={previous} disabled={currentPage === 1}>
-                {"🢀"}
-            </button>
+                <button onClick={previous} disabled={currentPage === 1}>
+                    {"🢀"}
+                </button>
                 {pageNums.map((num) => (
                     <button
                         className={`button ${
@@ -41,9 +41,9 @@ export default function Pagination({
                         {num}
                     </button>
                 ))}
-            <button onClick={next} disabled={currentPage === amountOfPages}>
-                {"🢂"}
-            </button>
+                <button onClick={next} disabled={currentPage === amountOfPages}>
+                    {"🢂"}
+                </button>
             </li>
         </nav>
     );

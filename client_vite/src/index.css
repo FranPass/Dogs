@@ -13,18 +13,31 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 body {
   margin: 0;
-  /* min-width: 320px; */
-  /* min-height: 100vh; */
+  min-width: 320px;
+  min-height: 100vh;
   height: max-content;
 }
 
 button {
   border-radius: 6px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border: 1px solid #3f41a6;
+  margin: 1px;
   font-size: 12px;
   font-weight: 500;
   font-family: inherit;
@@ -33,9 +46,25 @@ button {
 button:hover:enabled {
   cursor: pointer;
   border-color: #f69d3c;
+  background-color: #3f87a6;
+  color: #ffffff;
 }
 button.current {
   background-color: #f69d3c;
+  color: black;
+  font-weight: bold;
 }
+button.current:hover {
+  color: #f69d3c;
+  background-color: black;
+}
+button.noCurrent:hover {
+  color: #3f87a6;
+  background-color: white;
+  font-weight: bold;
+}
+/* button:disabled {
+  background-color: rgb(240, 240, 240);
+} */
 
 

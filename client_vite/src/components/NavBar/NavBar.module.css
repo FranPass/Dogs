@@ -1,17 +1,6 @@
   .navBar {
-    /* position: sticky;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    top: 0;
-    width: auto;
-    z-index: 1000;
-    height: 50px;
-    font-size: larger; */
     display: grid;
-    grid-template-columns: 1fr auto;
-    /* background: linear-gradient(90deg, #3f87a6 0%, rgba(49,49,57,1) 47%, #f69d3c 100%); */
+    grid-template-columns: auto;
     background-color: rgb(0, 0, 0, 0.2);
     color: #fff;
     position: fixed;
@@ -19,11 +8,9 @@
     width: 100%;
     z-index: 5;
   }
-
     
   .navLinks {
     margin: 6px;
-    
   }
   
   .navLinks button {
@@ -34,8 +21,11 @@
     color: #ffff;
     font-size:medium;
     cursor: pointer;
+    
+  font-weight: bold;
   }
-  .navLinks button:hover {
+  
+  /* .navLinks button:hover {
     color: #213547;
     background-color: #f69d3c;
-  } 
+  }  */
