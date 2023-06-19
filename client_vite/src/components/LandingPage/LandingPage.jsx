@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import style from "./LandingPage.module.css";
 
 export default function LandingPage() {
+
     return (
         <div className={style.container}>
             <div className={style.landingpage}>

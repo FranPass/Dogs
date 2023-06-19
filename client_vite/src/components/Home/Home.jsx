@@ -1,63 +1,59 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+// import axios from "axios";
+import { useEffect } from "react";
+import { useDispatch} from "react-redux";
+import { setAllDogs } from "../../redux/actions.js";
 import DogsList from "../DogsList/DogsList.jsx";
 import SearchBar from "../SearchBar/SearchBar";
 import style from "./Home.module.css";
+import Filters from "../Filters/Filters.jsx";
 
 export default function Home() {
-    const [allDogs, setAllDogs] = useState([]);
-    const [dogsByName, setDogsByName] = useState([]);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [name, setName] = useState("");
+    const dispatch = useDispatch();
+    // const [allDogs, setAllDogs] = useState([]);
+    // const [dogsByName, setDogsByName] = useState([]);
+    // const [name, setName] = useState("");
     
-    const handleChange = (event) => {
-        setName(event.target.value);
-    };
+    // const handleChange = (event) => {
+    //     setName(event.target.value);
+    // };
     
-    let dogsToShow = [];
-    if (dogsByName.length && name) {
-        dogsToShow = dogsByName;
-    } else {
-        dogsToShow = allDogs;
-    }
+    // let dogsToShow = [];
+    // if (dogsByName.length && name) {
+    //     dogsToShow = dogsByName;
+    // } else {
+    //     dogsToShow = allDogs;
+    // }
 
-    const numOfDogs = dogsToShow.length;
+    // const numOfDogs = dogsToShow.length;
 
-    const dogsList = async () => {
-        const {data} = await axios.get("http://localhost:3001/dogs/");
-        setAllDogs(() => [...data]);
-    };
+    // const dogsList = async () => {
+    //     const {data} = await axios.get("http://localhost:3001/dogs/");
+    //     setAllDogs(() => [...data]);
+    // };
 
+    // useEffect(() => {
+    //     dogsList();
+    // }, []);
+    
+    // const onSearch = async (name) => {
+        //     const {data} = await axios.get(
+            //         `http://localhost:3001/dogs/?name=${name}`
+            //     );
+            //     setDogsByName(() => [...data]);
+            //     };
     useEffect(() => {
-        dogsList();
-    }, []);
-
-
-    const onSearch = async (name) => {
-        if(!name) {
-            console.log(alert("No hay nada escrito"));
-        }
-        else {
-            const {data} = await axios.get(
-                `http://localhost:3001/dogs/?name=${name}`
-                );
-            setDogsByName(() => [...data]);
-        }
-        };
-
+        dispatch(setAllDogs());
+    }, [dispatch])
+    
     return (
         <div className={style.container}>
+            <Filters/>
             <SearchBar className={style.searchBar}
-                handleChange={handleChange}
-                name={name}
-                onSearch={onSearch}
+                // handleChange={handleChange}
+                // name={name}
+                // onSearch={onSearch}
             />
             <DogsList
-                setAllDogs={setAllDogs}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                numOfDogs={numOfDogs}
-                dogsToShow={dogsToShow}
             />
         </div>
     );

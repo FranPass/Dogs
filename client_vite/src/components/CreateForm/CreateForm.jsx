@@ -1,10 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import style from "./CreateForm.module.css";
 import validation from "./validation";
 
 export default function CreateForm() {
-    const [temperaments, setTemperaments] = useState([]);
+    const allTemperaments = useSelector((state) => state.allTemperaments)
+
     const [selectedTemperaments, setSelectedTemperaments] = useState([]);
     const [errors, setErrors] = useState({});
     const [dogData, setDogData] = useState({
@@ -19,24 +21,14 @@ export default function CreateForm() {
         temperaments: []
     })
 
-    const getTemperamentsList = async () => {
-        const {data} = await axios.get('http://localhost:3001/temperaments')
-        setTemperaments(() => [...data])
-    }
-    useEffect(() => {
-        getTemperamentsList()
-    }, [])
-
     const handleTemperaments = (event) => {
         event.preventDefault();
         setSelectedTemperaments([...selectedTemperaments, {id: Number(event.target.value), name: event.target.name}])
     }
-
     const eraseTemperament = (event) => {
         event.preventDefault();
         setSelectedTemperaments(selectedTemperaments.filter(e => e.id !== Number(event.target.value)))
     }
-
     const handleChange = (event) => {
         setDogData({
             ...dogData,
@@ -63,6 +55,7 @@ export default function CreateForm() {
             min_life_span,
             max_life_span,
             temperaments} = dogData;
+        if(!temperaments.length) return window.alert('Complete all the fields correctly');
         if (!Object.keys(errors).length) {
             const newDogData = {
                 name, 
@@ -85,9 +78,10 @@ export default function CreateForm() {
                 max_life_span: '',
                 temperaments: []
             })
-            return console.log(data.success)
+            setSelectedTemperaments([])
+            return window.alert(data.success)
         }
-        return console.log('Complete all the fields correctly');
+        return window.alert('Complete all the fields correctly');
     }
     
     return (
@@ -146,7 +140,7 @@ export default function CreateForm() {
                 <div className={style.temperaments}>
                     <h3>Temperaments</h3>
                         <div className={style.temperamentsList}>
-                            {temperaments.map((e) => {
+                            {allTemperaments.map((e) => {
                                 return (
                                     <button 
                                         className={style.temp} 
@@ -172,7 +166,7 @@ export default function CreateForm() {
                                 )
                             })}
                         </div>
-                        {errors.e11 ? <p>{errors.e11}</p> : <p>{errors.e12}</p>}
+                        {/* {errors.e11 ? <p>{errors.e11}</p> : <p>{errors.e12}</p>} */}
                 </div>
             </div>
             <button className={style.submitbutton} type="submit" onClick={handleSubmit}>

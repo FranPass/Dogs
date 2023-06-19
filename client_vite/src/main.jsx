@@ -1,27 +1,25 @@
 // import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import './index.css';
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
-
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
 root.render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Provider>
 );
-  
-  // import { Provider } from "react-redux";
-  // import { store } from './redux/store'
-  // <Provider store={store}>
-  //   </Provider>,
 
-  // forma anterior de hacerlo (con react 17)
-  // ReactDOM.render(
-  //   <BrowserRouter>
-  //     <App />
-  //   </BrowserRouter>,
-  //   document.getElementById('root')
-  // );
+// forma anterior de hacerlo (con react 17)
+// ReactDOM.render(
+//   <BrowserRouter>
+//     <App />
+//   </BrowserRouter>,
+//   document.getElementById('root')
+// );

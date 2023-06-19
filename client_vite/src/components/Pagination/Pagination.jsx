@@ -1,11 +1,10 @@
 import style from "./Pagination.module.css";
+import { nextPage, previousPage, setCurrentPage } from "../../redux/actions";
+import { useDispatch, useSelector} from 'react-redux'
 
-export default function Pagination({
-    numOfDogs,
-    currentPage,
-    setCurrentPage,
-    dogsPerPage,
-}) {
+export default function Pagination ({ numOfDogs, dogsPerPage, }) {
+    const currentPage = useSelector((state) => state.currentPage)
+    const dispatch = useDispatch();
     const amountOfPages = Math.ceil(numOfDogs / dogsPerPage);
     const pageNums = [];
     for (let i = 1; i <= amountOfPages; i++) {
@@ -13,16 +12,14 @@ export default function Pagination({
     }
 
     const previous = () => {
-        setCurrentPage(currentPage - 1);
+        dispatch(previousPage())
     };
-
     const next = () => {
-        setCurrentPage(currentPage + 1);
+        dispatch(nextPage())
     };
-
-    const specificPage = (n) => {
-        setCurrentPage(n);
-    };
+    const specificPage = (event) => {
+        dispatch(setCurrentPage(Number(event.target.value)))
+    }
 
     return (
         <nav className={style.pagination}>
@@ -35,8 +32,9 @@ export default function Pagination({
                         className={`button ${
                             currentPage === num ? "current" : ""
                         }`}
-                        onClick={() => specificPage(num)}
+                        onClick={specificPage}
                         key={num}
+                        value={num}
                     >
                         {num}
                     </button>
