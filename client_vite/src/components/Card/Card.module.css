@@ -3,7 +3,7 @@
   width: 400px;
   height: 160px;
   overflow: hidden;
-  background: linear-gradient(#f69d3c, #3f87a6);
+  background: linear-gradient(rgb(246, 157, 60), rgb(63, 135, 166));
   box-shadow: 1px 1px 5px black;
 }  
 
@@ -21,6 +21,7 @@
   max-width: 220px;
   width: auto;
   height: 160px;  
+  position: relative;
 }
 
 .description {
@@ -29,7 +30,6 @@
   font-size: small;
   margin-top: 0;
   margin: 6px;
-  /* text-align: left; */
   color: black;
   line-height: 12px;
 }

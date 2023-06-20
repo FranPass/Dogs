@@ -10,7 +10,7 @@ export default function NavBar() {
     return (
         <div className={style.navBar}>
             <ul className={style.navLinks}>
-                {['Home', 'Favorite', 'Create'].map((e,index) => {
+                {['Home', 'Create'].map((e,index) => {
                 return (
                     <NavLink key={index} to={`/${e.toLowerCase()}`}>
                         <button className={`button ${pathname === `/${e.toLowerCase()}` ? "current" : "noCurrent"}`}>{e}</button>

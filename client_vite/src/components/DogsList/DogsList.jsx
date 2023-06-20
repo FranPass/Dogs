@@ -1,11 +1,19 @@
-import {useSelector} from 'react-redux'
+import { useEffect } from "react";
+import {useSelector, useDispatch} from 'react-redux'
 import Card from "../Card/Card";
 import Pagination from "../Pagination/Pagination.jsx";
 import style from "./DogsList.module.css";
+import { setAllDogs } from "../../redux/actions.js";
 
 export default function DogsList() {
     const filteredDogs = useSelector((state) => state.filteredDogs)
     const currentPage = useSelector((state) => state.currentPage)
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(setAllDogs());
+    }, [dispatch])
+    
 
     const dogsPerPage = 8;
     const numOfDogs = filteredDogs.length
@@ -13,7 +21,7 @@ export default function DogsList() {
     const firstDog = lastDog - dogsPerPage;
 
     return (
-        <>
+        <div className={style.container}>
             <div className={style.divCards}>
                 {filteredDogs
                     .slice(firstDog, lastDog)
@@ -34,6 +42,6 @@ export default function DogsList() {
                 dogsPerPage={dogsPerPage}
                 numOfDogs={numOfDogs}
             />
-        </>
+        </div>
     );
 }

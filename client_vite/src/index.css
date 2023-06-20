@@ -5,7 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background: radial-gradient(circle, #ffffff 10%, rgb(58, 124, 15) 100%);
+  background: radial-gradient(circle, #ffffff 10%, #3a7c0f 100%);
+  /* background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(58,124,15,1) 50%, rgba(247,147,65,1) 100%); */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -63,8 +64,5 @@ button.noCurrent:hover {
   background-color: white;
   font-weight: bold;
 }
-/* button:disabled {
-  background-color: rgb(240, 240, 240);
-} */
 
 

@@ -15,11 +15,3 @@ root.render(
         </BrowserRouter>
     </Provider>
 );
-
-// forma anterior de hacerlo (con react 17)
-// ReactDOM.render(
-//   <BrowserRouter>
-//     <App />
-//   </BrowserRouter>,
-//   document.getElementById('root')
-// );

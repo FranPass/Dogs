@@ -6,13 +6,13 @@ export default function LandingPage() {
     return (
         <div className={style.container}>
             <div className={style.landingpage}>
-                <h1>ALL DOGS WORLD</h1>
                 <img
                     src="https://imagenpng.com/wp-content/uploads/2016/09/Grupo-perros.png"
-                    alt=""
-                />
+                    alt="dog_group"
+                    />
+                <h1>ALL DOGS WORLD</h1>
                 <NavLink to="/home">
-                    <h2>Start!</h2>
+                    <button>Start!</button>
                 </NavLink>
             </div>
         </div>

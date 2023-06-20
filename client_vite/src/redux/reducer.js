@@ -22,7 +22,7 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 filteredDogs: action.payload
             }
-        
+            
         case SET_ALL_TEMPERAMENTS:
             return {
                 ...state,
