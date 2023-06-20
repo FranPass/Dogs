@@ -1,13 +1,17 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import { setAllTemperaments } from "../../redux/actions";
 import style from "./CreateForm.module.css";
 import validation from "./validation";
 
 export default function CreateForm() {
+    const dispatch = useDispatch()
     const allTemperaments = useSelector((state) => state.allTemperaments)
+    useEffect(() => {
+        dispatch(setAllTemperaments());
+    }, [dispatch]);
 
-    const [selectedTemperaments, setSelectedTemperaments] = useState([]);
     const [errors, setErrors] = useState({});
     const [dogData, setDogData] = useState({
         name: '',
@@ -23,25 +27,38 @@ export default function CreateForm() {
 
     const handleTemperaments = (event) => {
         event.preventDefault();
-        setSelectedTemperaments([...selectedTemperaments, {id: Number(event.target.value), name: event.target.name}])
+        const temp = {id: Number(event.target.value), name: event.target.name}
+        setErrors(validation({
+            ...dogData,
+            temperaments:  [...dogData.temperaments, temp]
+        }));
+        setDogData({
+            ...dogData,
+            temperaments:  [...dogData.temperaments, temp]
+        });
     }
     const eraseTemperament = (event) => {
         event.preventDefault();
-        setSelectedTemperaments(selectedTemperaments.filter(e => e.id !== Number(event.target.value)))
+        const newTemperaments = dogData.temperaments.filter(e => e.id !== Number(event.target.value))
+        setErrors(validation({
+            ...dogData,
+            temperaments:  [...newTemperaments]
+        }));
+        setDogData({
+            ...dogData,
+            temperaments:  [...newTemperaments]
+        });
     }
     const handleChange = (event) => {
         setDogData({
             ...dogData,
             [event.target.name]: event.target.value,
-            temperaments:  [...selectedTemperaments]
         })
         setErrors(validation({
             ...dogData,
             [event.target.name]: event.target.value,
-            temperaments:  [...selectedTemperaments]
         }));
     }
-
     const handleSubmit = async (event) => {
         event.preventDefault()
         const URL = 'http://localhost:3001/dogs'
@@ -65,7 +82,6 @@ export default function CreateForm() {
                 life_span: `${min_life_span} - ${max_life_span}`, 
                 temperament: temperaments
             }
-            
             const {data} = await axios.post(URL, newDogData);
             setDogData({
                 name: '',
@@ -78,7 +94,6 @@ export default function CreateForm() {
                 max_life_span: '',
                 temperaments: []
             })
-            setSelectedTemperaments([])
             return window.alert(data.success)
         }
         return window.alert('Complete all the fields correctly');
@@ -88,9 +103,7 @@ export default function CreateForm() {
         <form className={style.containerForm}>
             <div className={style.dog}>
                 <div className={style.dogInfo}>
-                    <label htmlFor="name">
-                        <h3>Name</h3>
-                    </label>
+                    <label htmlFor="name"> <h3>Name</h3> </label>
                     <input
                         className={style.inputName}
                         value={dogData.name}
@@ -98,9 +111,7 @@ export default function CreateForm() {
                         type="text"
                         onChange={handleChange}
                     />
-                    <label htmlFor="image">
-                        <h3>Image</h3>
-                    </label>
+                    <label htmlFor="image"> <h3>Image</h3> </label>
                     <input
                         className={style.inputName}
                         value={dogData.image}
@@ -109,7 +120,6 @@ export default function CreateForm() {
                         onChange={handleChange}
                         placeholder="Insert url of image"
                     />
-                    
                     {["Height", "Weight", "Life Span"].map((e, index) => {
                         return (
                             <div key={index}>
@@ -139,38 +149,39 @@ export default function CreateForm() {
                 </div>
                 <div className={style.temperaments}>
                     <h3>Temperaments</h3>
-                        <div className={style.temperamentsList}>
-                            {allTemperaments.map((e) => {
-                                return (
-                                    <button 
-                                        className={style.temp} 
-                                        key={e.id} value={e.id} 
-                                        name={e.name} 
-                                        onClick={handleTemperaments} 
-                                        disabled={selectedTemperaments.find(obj => obj.id === e.id)}>
-                                        {e.name}
-                                    </button>
-                                )
-                            })}
-                        </div>
-                        <div className={style.selectedTemperamentsList}>
-                            {selectedTemperaments.map((e) => {
-                                return (
-                                    <button 
-                                        className={style.temp} 
-                                        key={e.id} 
-                                        value={e.id} 
-                                        onClick={eraseTemperament}>
-                                        {e.name}
-                                    </button>
-                                )
-                            })}
-                        </div>
-                        {/* {errors.e11 ? <p>{errors.e11}</p> : <p>{errors.e12}</p>} */}
+                    <div className={style.temperamentsList}>
+                        {allTemperaments.map((e) => {
+                            return (
+                                <button 
+                                    className={style.temp} 
+                                    key={e.id} value={e.id} 
+                                    name={e.name} 
+                                    onClick={handleTemperaments} 
+                                    disabled={dogData.temperaments.find(obj => obj.id === e.id)}
+                                    >
+                                    {e.name}
+                                </button>
+                            )
+                        })}
+                    </div>
+                    <div className={style.selectedTemperamentsList}>
+                        {dogData.temperaments.map((e) => {
+                            return (
+                                <button 
+                                    className={style.temp} 
+                                    key={e.id} 
+                                    value={e.id} 
+                                    onClick={eraseTemperament}
+                                    >
+                                    {e.name}
+                                </button>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
             <button className={style.submitbutton} type="submit" onClick={handleSubmit}>
-                <h1>Create dog</h1>
+                <h1>Create your own dog!</h1>
             </button>
         </form>
     );

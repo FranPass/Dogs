@@ -17,10 +17,10 @@ const validation = function(data) {
     if (max_height < min_height) {
         errors.e4 = 'The minimum height must be less than the maximum height'
     }
-    if (min_weight < 0.5 || min_weight > 90){
+    if (min_weight < 0.5 || min_weight > 95){
         errors.e5 = 'The weight must be between 0.5kg and 90kg'
     }
-    if (max_weight < 0.5 || max_weight > 90){
+    if (max_weight < 0.5 || max_weight > 95){
         errors.e6 = 'The weight must be between 0.5kg and 90kg'
     }
     if (max_weight < min_weight) {

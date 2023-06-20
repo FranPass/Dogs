@@ -1,6 +1,8 @@
 import { useLocation } from "react-router-dom";
 import style from "./NavBar.module.css";
 import { NavLink } from "react-router-dom";
+import SearchBar from "../SearchBar/SearchBar";
+import Filters from "../Filters/Filters";
 
 export default function NavBar() {
     const { pathname } = useLocation();
@@ -8,7 +10,7 @@ export default function NavBar() {
     return (
         <div className={style.navBar}>
             <ul className={style.navLinks}>
-                {['Home', 'About', 'Favorite', 'Create'].map((e,index) => {
+                {['Home', 'Favorite', 'Create'].map((e,index) => {
                 return (
                     <NavLink key={index} to={`/${e.toLowerCase()}`}>
                         <button className={`button ${pathname === `/${e.toLowerCase()}` ? "current" : "noCurrent"}`}>{e}</button>
@@ -16,6 +18,9 @@ export default function NavBar() {
                     )
                 })}
             </ul>
+            {pathname === '/home' && <SearchBar/>}
+            {pathname === '/home' && <Filters/>}
+
         </div>
     );
 }

@@ -1,6 +1,19 @@
+import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css";
+import { findDogs } from "../../redux/actions";
+import { useEffect, useState } from "react";
 
-export default function SearchBar({handleChange, name, onSearch}) {
+export default function SearchBar() {
+    const dispatch = useDispatch();
+    const [name, setName] = useState('');
+
+    const handleChange = (event) => {
+        setName(event.target.value)
+    }
+
+    useEffect(() => {
+        dispatch(findDogs(name))
+    }, [name, dispatch])
     return (
         <div className={style.search}>
             <input
@@ -10,9 +23,6 @@ export default function SearchBar({handleChange, name, onSearch}) {
                 placeholder="Search dog..."
                 className={style.searchBar}
             />
-            <button onClick={ () => {onSearch(name)} } className={style.searchBtn} disabled={!name} >
-                Search
-            </button>
         </div>
     );
 }

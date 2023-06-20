@@ -1,15 +1,10 @@
 .container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
   margin: 0;
   width: 400px;
-  height: 180px;
+  height: 160px;
   overflow: hidden;
   background: linear-gradient(#f69d3c, #3f87a6);
   box-shadow: 1px 1px 5px black;
-  font-size: 12px;
 }  
 
 .imageCard {
@@ -23,17 +18,18 @@
   float: left;
   flex: 2 1 0%;
   object-fit: cover;
-  max-width: 250px;
+  max-width: 220px;
   width: auto;
-  height: 180px;  
+  height: 160px;  
 }
 
 .description {
-  /* width: auto; */
+  float: inline-start;
+  width: auto;
+  font-size: small;
   margin-top: 0;
   margin: 6px;
-  text-align: left;
+  /* text-align: left; */
   color: black;
-  /* height: 125px; */
-  line-height: 13px;
+  line-height: 12px;
 }

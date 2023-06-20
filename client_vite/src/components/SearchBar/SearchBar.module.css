@@ -3,24 +3,12 @@
     flex-wrap: nowrap;
     margin: 10px;
     align-items: center;
+    z-index: 6;
 }
 
 .searchBar {
     border: none;
     box-shadow: inset 1px 1px 4px;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
     height: 30px;
-}
-
-.searchBtn {
-    border: 1px solid transparent;
-    box-shadow: 1px 1px 4px;
-    border-radius: 0 5px 5px 0;
-    height: 30px;
-    font-weight: bold;
-}
-.searchBtn:hover:enabled {
-    background-color: antiquewhite;
-    color: black;
-    border: none;
 }

@@ -1,4 +1,3 @@
-// import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector} from 'react-redux'
@@ -24,6 +23,9 @@ export default function Detail() {
         <div className={style.container}>
             <div className={style.image}>
                 <img src={dog.image} alt="" />
+                <span className={style.id}>
+                    ID: {dog.id}
+                </span>
             </div>
             <div className={style.description}>
                 <h2>Name: {dog.name}</h2>

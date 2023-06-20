@@ -7,17 +7,15 @@
     color: black;
     text-align: center;
     font-size: large;
-    /* background: radial-gradient(circle, rgb(230, 173, 126) 0%, rgba(255,255,255,0) 50%); */
-    /* background-color: rgb(255, 235, 205, 0.5); */
     background: linear-gradient(#f69d3c, #3f87a6);
     margin: auto;
-    margin-top: 55px;
+    margin-top: 10px;
     width: 900px;
     border-radius: 20px;
     box-shadow: 0 0 5px rgb(0, 0, 0); 
 }
 .containerForm h3 {
-    margin: 10px;
+    margin: 7px;
 }
 .dog {
     width: inherit;
@@ -33,12 +31,15 @@
     width: 350px;
     margin-left: 15px;
 }
-
-.inputName {
-    width: 250px;
+.dogInfo input {
+    height: 25px;
+    border-radius: 5px;
     box-shadow: inset 0 0 5px grey; 
 }
 
+.inputName {
+    width: 250px;
+}
 .inputNums {
     display: flex;
     justify-content: space-evenly;   
@@ -46,8 +47,6 @@
 }
 .inputNums input {
     width: 40px;
-    height: 25px; 
-    box-shadow: inset 0 0 5px grey; 
 }
 
 
@@ -98,9 +97,16 @@
     filter: none;
     color: black;
     font-weight: bold;
-    /* font-size: medium; */
 }
 
 .submitbutton {
+    border: 1px solid transparent;
+    padding: 0px 10px 0px 10px;
     margin: 10px;
+    box-shadow: 1px 1px 5px black;
+}
+.submitbutton:hover {
+    border: 1px solid white;
+    box-shadow: 1px 1px 10px black;
+    background-color: azure;
 }
