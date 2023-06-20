@@ -4,7 +4,6 @@
   height: 600px;
   background-size: contain;
 }
-
 .landingpage {
   width: 50%;
   height: 60%;
@@ -38,7 +37,6 @@
   box-shadow:  1px 1px 5px red;
   text-shadow:1px 1px 3px  black;
 }
-
 img {
   width: 100%;
 }

@@ -8,9 +8,9 @@ export default function LandingPage() {
             <div className={style.landingpage}>
                 <img
                     src="https://imagenpng.com/wp-content/uploads/2016/09/Grupo-perros.png"
-                    alt="dog_group"
+                    alt=""
                     />
-                <h1>ALL DOGS WORLD</h1>
+                <h1>HENRY’s DOGS WORLD</h1>
                 <NavLink to="/home">
                     <button>Start!</button>
                 </NavLink>
