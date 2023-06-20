@@ -5,22 +5,22 @@ const { API_KEY } = process.env;
 const headers = { "x-api-key": API_KEY };
 
 const getDogs = async (req, res) => {
-    const allDogsDb = await Dog.findAll({
-        include: {
-            model: Temperament,
-            through: {
-                attributes: [],
-            },
-        },
-    });
-    allDogsDb.forEach(
-        (data, i) =>
-            (allDogsDb[i].dataValues.temperaments = data.temperaments.map((temp) => temp.name).join(", "))
-    );
-
     try {
-        const response = await axios.get(`${URL}`, { headers });
-        const allDogsApi = response.data.map((dog) => {
+        const allDogsDb = await Dog.findAll({
+            include: {
+                model: Temperament,
+                through: {
+                    attributes: [],
+                },
+            },
+        });
+        allDogsDb.forEach(
+            data =>
+                (data.dataValues.temperament = data.temperaments.map((temp) => temp.name).join(", "))
+        );
+    
+        const {data} = await axios.get(`${URL}`, { headers });
+        const allDogsApi = data.map((dog) => {
             return {
                 id: dog.id,
                 image: dog.image.url,
@@ -32,8 +32,24 @@ const getDogs = async (req, res) => {
             };
         });
         const allDogs = [...allDogsApi, ...allDogsDb];
+        
         if (!allDogs.length)
-            return res.status(404).send("No se encontraron perros");
+            return res.status(404).send("Dog not found");
+    
+        const {name} = req.query;
+        if (name) {
+            const dogsByName = allDogs.filter( dog => (dog.name).toLowerCase().includes(name.toLowerCase()) )
+            if (!dogsByName.length) return res.status(200).json([{
+                id: '',
+                image: 'https://www.pawmaw.com/pawmaw/img/home/promo-shape-3.png',
+                name: 'Dog not found',
+                weight: '---',
+                height: '---',
+                life_span: '---',
+                temperament: [],
+            }])
+            return res.json(dogsByName)
+        }
         return res.status(200).json(allDogs);
     } catch (error) {
         return res.status(500).send(error.message);

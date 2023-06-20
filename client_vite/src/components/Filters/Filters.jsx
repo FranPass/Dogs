@@ -39,7 +39,7 @@ export default function Filters() {
                     <option value="created">Created</option>
                 </select>
                 <select onChange={handleFilter}>
-                    <option value="all">All dogs</option>
+                    <option value="all">All temperaments</option>
                     {allTemperaments.map((temp) => {
                         return (
                             <option value={temp.name} key={temp.id}>

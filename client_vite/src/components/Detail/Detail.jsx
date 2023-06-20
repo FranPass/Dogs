@@ -11,7 +11,6 @@ export default function Detail() {
     const findDogDetails = (id) => {
         const dogDetails = allDogs.find( dog => `${dog.id}` === id)
         setDog(dogDetails)
-        console.log(dogDetails);
     }
 
     useEffect(() => {

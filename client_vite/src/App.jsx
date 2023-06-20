@@ -4,6 +4,8 @@ import Detail from "./components/Detail/Detail.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
 import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import CreateForm from "./components/CreateForm/CreateForm"
+import axios from "axios";
+axios.defaults.baseURL = 'http://localhost:3001/'
 
 function App() {
     const { pathname } = useLocation();

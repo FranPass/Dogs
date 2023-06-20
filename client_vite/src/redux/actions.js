@@ -12,7 +12,7 @@ export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_WEIGHT = 'ORDER_BY_WEIGHT';
 
 export const setAllDogs = () => {
-    const endpoint = 'http://localhost:3001/dogs/';
+    const endpoint = '/dogs/';
     return (dispatch) => {
         axios.get(endpoint)
         .then(({data}) => {
@@ -24,7 +24,7 @@ export const setAllDogs = () => {
     }
 }
 export const findDogs = (name) => {
-    const endpoint = `http://localhost:3001/dogs/?name=${name}`;
+    const endpoint = `/dogs/?name=${name}`;
     return (dispatch) => {
         axios.get(endpoint)
         .then(({data}) => {
@@ -32,11 +32,11 @@ export const findDogs = (name) => {
                 type: FOUND_DOGS,
                 payload: [...data]
             })
-        })
+        }, )
     }
 }
 export const setAllTemperaments = () => {
-    const endpoint = 'http://localhost:3001/temperaments/';
+    const endpoint = '/temperaments/';
     return (dispatch) => {
         axios.get(endpoint)
         .then(({data}) => {
