@@ -8,7 +8,4 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
   },
-  css: {
-    modules: true,
-  },
 })
