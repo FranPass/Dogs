@@ -18,9 +18,9 @@ function App() {
                 <Routes>
                     <Route
                         path="/"
-                        element={<LandingPage />}
+                        element={<DogsList />}
                     />
-                    <Route path="/home" element={<DogsList />} />
+                    <Route path="/home" element={<LandingPage />} />
                     <Route path="/detail/:id" element={<Detail />} />
                     <Route path="/create" element={<CreateForm />} />
                 </Routes>
