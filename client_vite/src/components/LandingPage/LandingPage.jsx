@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-// import style from "./LandingPage.module.css?used";
+import style from "./LandingPage.module.css";
 
 
 
 export default function LandingPage() {
 
     return (
-        <div className={style.container}>
+        <div className={style.containerLanding}>
             <div className={style.landingpage}>
                 <img
                     src="https://imagenpng.com/wp-content/uploads/2016/09/Grupo-perros.png"
