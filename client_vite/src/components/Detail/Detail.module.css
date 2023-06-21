@@ -1,9 +1,17 @@
-.container {
+.detailContainer {
     display: flex;
-    margin: auto;
+    justify-content: center;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 10px;
     margin-top: 50px;
-    width: 900px;
-    height: 300px;
+    width: auto;
+    max-width: 900px;
+    height: fit-content;
     overflow: hidden;
     background-color: whitesmoke;
     box-shadow: 1px 1px 7px rgb(0, 0, 0);
@@ -12,10 +20,14 @@
 
 .image {
     position: relative;
-    float: left;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    width: auto;
+    height: fit-content;
+    max-width: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
-
 .id {
     position: absolute;
     bottom: 0;
@@ -27,14 +39,10 @@
     font-size: smaller;
     background: linear-gradient(rgba(255,255,255,0),rgba(0,0,0,0.7));
 }
-
 .image img{
-    float: left;
     flex: 2 1 0%;
     object-fit: cover;
-    width: 100%;
-    max-width: 500px;
-    height: 300px;
+    max-height: 400px;
 }
 
 .description {
@@ -43,11 +51,8 @@
     justify-content: center;
     align-items: center;
     padding: 25px;
-    float: left;
+    margin-top: -10px;
     flex: 3 1 0%;
-    padding-left: 16px;
-    line-height:26px;
-    text-align: left;
     color: black;
     overflow-wrap: break-word;
 }
@@ -56,13 +61,11 @@
     background-color: rgba(127, 176, 221);
     box-shadow: 1px 1px 5px black;
     text-shadow: 1px 1px 2px black;
-    padding: 12px;
+    padding: 8px;
     font-size: 1.5rem;
     font-weight: bold;
-    line-height: 15px;
     border-radius: 10px;
 }
-
 .description p {
     text-align: center;
     margin-top: 0;
