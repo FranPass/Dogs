@@ -57,10 +57,10 @@ export default function Filters() {
                 </select>
                 <select onChange={handleWeightOrder}>
                     <option value="none">None</option>
-                    <option value="A">Max Weight 🡱</option>
-                    <option value="D">Max Weight 🡳</option>
-                    <option value="a">Min Weight 🡱</option>
-                    <option value="d">Min Weight 🡳</option>
+                    <option value="A">Max Weight ↑</option>
+                    <option value="D">Max Weight ↓</option>
+                    <option value="a">Min Weight ↑</option>
+                    <option value="d">Min Weight ↓</option>
                 </select>
             </div>
         </div>
