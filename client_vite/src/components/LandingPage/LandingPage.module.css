@@ -24,11 +24,12 @@
   text-shadow:1px 1px 3px  black;
 }
 .landingpage h1 {
+  font-weight: bolder;
+  color: rgb(0, 0, 0);
   padding: 15px;
   border-radius: 15px;
-  background: radial-gradient(circle, rgb(182, 219, 221) 0%, rgb(214, 205, 188) 100%);
-  color: rgb(0, 0, 0);
-  box-shadow:  1px 1px 5px rgb(0, 0, 0);
+  background: radial-gradient(circle, rgb(192, 192, 192) 0%, rgb(129, 129, 129) 100%);
+  box-shadow:  1px 1px 5px rgb(61, 13, 13);
 }
 img {
   width: 100%;

@@ -5,7 +5,8 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: rgb(255, 255, 255);
+  background: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(206, 206, 206) 100%);
+  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -40,26 +41,17 @@ button {
   font-size: 12px;
   font-weight: 500;
   font-family: inherit;
-  transition: border-color 0.25s;
+  transition: background-color 0.2s;
 }
 button:hover:enabled {
   cursor: pointer;
-  background-color: #3f87a6;
-  color: #ffffff;
+  color: black;
+  box-shadow: 1px 1px 5px black;
 }
 button.current {
-  background-color: #f69d3c;
   color: black;
-  font-weight: bold;
-}
-button.current:hover {
-  color: #f69d3c;
-  background-color: black;
-}
-button.noCurrent:hover {
-  color: #3f87a6;
-  background-color: white;
-  font-weight: bold;
+  background-color: bisque;
+  box-shadow: 1px 1px 5px black;
 }
 
 

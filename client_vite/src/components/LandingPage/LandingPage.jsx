@@ -8,7 +8,7 @@ export default function LandingPage() {
                     src="https://imagenpng.com/wp-content/uploads/2016/09/Grupo-perros.png"
                     alt=""
                 />
-                <h1>HENRY’s DOGS WORLD</h1>
+                <h1>HENRY’S DOGS WORLD</h1>
                 <NavLink to="/home">
                     <button>Start!</button>
                 </NavLink>

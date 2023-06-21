@@ -6,7 +6,7 @@ import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import CreateForm from "./components/CreateForm/CreateForm"
 import axios from "axios";
 axios.defaults.baseURL = 'https://apidogs-production-0756.up.railway.app/' 
-// axios.defaults.baseURL = 'http://localhost:3001' 
+// axios.defaults.baseURL = 'http://localhost:3001/' 
 
 function App() {
     const { pathname } = useLocation();

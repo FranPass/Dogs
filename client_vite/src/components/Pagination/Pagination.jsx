@@ -24,8 +24,8 @@ export default function Pagination ({ numOfDogs, dogsPerPage, }) {
     return (
         <nav className={style.pagination}>
             <li>
-                <button onClick={previous} disabled={currentPage === 1}>
-                    {"🢀"}
+                <button className={style.arrow} onClick={previous} disabled={currentPage === 1}>
+                    {"<"}
                 </button>
                 {pageNums.map((num) => (
                     <button
@@ -39,8 +39,8 @@ export default function Pagination ({ numOfDogs, dogsPerPage, }) {
                         {num}
                     </button>
                 ))}
-                <button onClick={next} disabled={currentPage === amountOfPages}>
-                    {"🢂"}
+                <button className={style.arrow} onClick={next} disabled={currentPage === amountOfPages}>
+                    {">"}
                 </button>
             </li>
         </nav>

@@ -4,18 +4,21 @@
   width: 400px;
   height: 160px;
   overflow: hidden;
-  /* background-color: rgb(131, 180, 199); */
-  background: linear-gradient(rgb(166, 220, 241),rgb(95, 149, 170));
-  box-shadow: 1px 1px 5px black;
+  background-color: whitesmoke;
+  box-shadow: 1px 1px 7px rgb(0, 0, 0);
   border-radius: 10px;
 }  
 
 .imageCard {
   filter: brightness(90%);
   float: left;
+  box-shadow: 1px 1px 5px rgb(0, 0, 0);
+  transition: transform 0.25s ease;
 }
 .imageCard:hover {
   filter: brightness(100%);
+  transform: scale(1.05);
+  z-index: 11;
 }
 .imageCard img {
   object-fit: cover;
@@ -29,28 +32,33 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  font-size: small;
   margin-top: 0;
-  margin: 6px;
+  margin: 10px;
   color: black;
   line-height: 12px;
+  width: auto;
 }
 .title {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 1px 1px 3px black;
+  color: rgb(255, 255, 255);
+  background-color: rgba(127, 176, 221);
+  box-shadow: 1px 1px 5px black;
+  text-shadow: 1px 1px 2px black;
   padding: 6px;
+  margin-top: 5px;
   font-size: medium;
   font-weight: bold;
   line-height: 15px;
   height: auto;
   border-radius: 5px;
+  z-index: 10;
 }
 .data {
-  background-color: rgb(255, 255, 255);
-  font-weight: 500;
+  /* background: rgba(255, 255, 255, 0.2);
   box-shadow: inset 1px 1px 3px black;
-  border-radius: 3px;
+  border-radius: 5px;
+  margin-top: -6px; */
   padding: 2px;
   margin: 1px;
-  margin-top: 8px;
+  font-weight: 600;
+  font-size: small;
 }

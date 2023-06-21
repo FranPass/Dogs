@@ -2,9 +2,12 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+    height: 100vh;
     text-align:center;
-    justify-content: center; 
+    justify-content: flex-start;
+    padding-top: 20px; 
     align-items: center;
+    background-color: white;
 }
 .divCards {
     display: flex;
