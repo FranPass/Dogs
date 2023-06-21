@@ -28,20 +28,12 @@
   background: rgb(255,255,255);
   color: rgb(196, 27, 27);
   text-shadow:1px 1px 3px  white;
-  transform: scale(1.5) rotateZ(360deg);
-}
-.landingpage h1 {
-  font-weight: bolder;
-  color: rgb(0, 0, 0);
-  padding: 15px;
-  border-radius: 15px;
-  background: radial-gradient(circle, rgb(192, 192, 192) 0%, rgb(129, 129, 129) 100%);
-  box-shadow:  1px 1px 5px rgb(61, 13, 13);
+  transform: scale(1.5);
 }
 .landingpage img {
-  width: 100%;
+  width: 150%;
   transition: transform 1s ease;
 }
 .landingpage img:hover {
-  transform: scale(1.3);
+  transform: scale(1.1);
 }
