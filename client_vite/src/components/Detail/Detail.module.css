@@ -21,8 +21,6 @@
     position: relative;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
     width: auto;
-    height: fit-content;
-    max-width: 500px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -41,7 +39,7 @@
 .image img{
     flex: 2 1 0%;
     object-fit: cover;
-    max-height: 500px;
+    max-height: 400px;
 }
 
 .description {
