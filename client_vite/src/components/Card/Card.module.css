@@ -1,35 +1,56 @@
 .container {
+  display: flex;
   margin: 0;
   width: 400px;
   height: 160px;
   overflow: hidden;
-  background: linear-gradient(rgb(246, 157, 60), rgb(63, 135, 166));
+  /* background-color: rgb(131, 180, 199); */
+  background: linear-gradient(rgb(166, 220, 241),rgb(95, 149, 170));
   box-shadow: 1px 1px 5px black;
+  border-radius: 10px;
 }  
 
 .imageCard {
   filter: brightness(90%);
+  float: left;
 }
 .imageCard:hover {
   filter: brightness(100%);
 }
-
 .imageCard img {
-  float: left;
-  flex: 2 1 0%;
   object-fit: cover;
   max-width: 220px;
   width: auto;
   height: 160px;  
-  position: relative;
 }
 
 .description {
-  float: inline-start;
-  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   font-size: small;
   margin-top: 0;
   margin: 6px;
   color: black;
   line-height: 12px;
+}
+.title {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 3px black;
+  padding: 6px;
+  font-size: medium;
+  font-weight: bold;
+  line-height: 15px;
+  height: auto;
+  border-radius: 5px;
+}
+.data {
+  background-color: rgb(255, 255, 255);
+  font-weight: 500;
+  box-shadow: inset 1px 1px 3px black;
+  border-radius: 3px;
+  padding: 2px;
+  margin: 1px;
+  margin-top: 8px;
 }

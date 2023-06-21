@@ -20,7 +20,6 @@ const getTemperaments = async (req, res) => {
             const dbTemps = await Temperament.findAll()
             if (dbTemps.length) return res.status(200).json(dbTemps);
             await Temperament.bulkCreate(temperaments);
-            // dbTemps = await Temperament.findAll()
 
             return res.status(200).json(dbTemps);
     } catch (error) {

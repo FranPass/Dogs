@@ -12,15 +12,17 @@ export default function Card({ id, name, image, temperament, weight }) {
             </div>
             {id === ''  
                 ? <div className={style.description}>
-                    <h2>{name}</h2>
+                    <div className={style.title}><span>{name}</span></div>
                     <p>Didn’t find the dog you were looking for?</p>
                     <p>Consider creating one yourself!!</p>
                     <NavLink to={`/create`}><h2>Click here!</h2></NavLink>
                 </div>
                 : <div className={style.description}>
-                    <h3>{name}</h3>
-                    <p>Temperaments: {temperament}</p>
+                    <div className={style.title}><span>{name}</span></div>
+                    <div className={style.data}>
+                    <p>{temperament}</p>
                     <p>Weight: {weight} kg</p>
+                    </div>
                 </div>
                 }
         </div>
