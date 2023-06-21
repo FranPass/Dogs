@@ -5,21 +5,14 @@
 }
 
 .container select {
-    margin: 2px;
-    border: 1px solid transparent;
-    padding: 6px;
-    border-radius: 5px;
+    margin: 1px;
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
     box-shadow: 0px 0px 4px rgb(124, 124, 124);
+    height: 26px;
 }
 .container select:hover {
     box-shadow: 1px 1px 5px black;
-    border: 2px solid transparent;
     margin: 1px;
-}
-
-.filters {
-    padding: 10px;
-}
-.sorts {
-    padding: 10px;
 }

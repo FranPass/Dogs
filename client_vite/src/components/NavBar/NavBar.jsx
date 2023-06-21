@@ -18,8 +18,11 @@ export default function NavBar() {
                     )
                 })}
             </ul>
+            <div className={style.search}>
             {pathname === '/home' && <SearchBar/>}
             {pathname === '/home' && <Filters/>}
+
+            </div>
 
         </div>
     );
