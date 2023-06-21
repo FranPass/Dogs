@@ -19,19 +19,21 @@ export default function Detail() {
       }, [id]);
 
     return (
-        <div className={style.container}>
-            <div className={style.image}>
-                <img src={dog.image} alt="" />
-                <span className={style.id}>
-                    ID: {dog.id}
-                </span>
-            </div>
-            <div className={style.description}>
-                <h2>Name: {dog.name}</h2>
-                <p>Height: {dog.height} cm</p>
-                <p>Weight: {dog.weight} kg</p>
-                <p>Temperaments: {dog.temperament}</p>
-                <p>Life span: {dog.life_span}</p>
+        <div className={style.detailContainer}>
+            <div className={style.cardContainer}>
+                <div className={style.image}>
+                    <img src={dog.image} alt="" />
+                    <span className={style.id}>
+                        ID: {dog.id}
+                    </span>
+                </div>
+                <div className={style.description}>
+                    <h2>Name: {dog.name}</h2>
+                    <p>Height: {dog.height} cm</p>
+                    <p>Weight: {dog.weight} kg</p>
+                    <p>Temperaments: {dog.temperament}</p>
+                    <p>Life span: {dog.life_span}</p>
+                </div>
             </div>
         </div>
     );
