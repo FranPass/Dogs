@@ -39,24 +39,19 @@
   width: auto;
 }
 .title {
-  color: rgb(255, 255, 255);
-  background-color: rgba(127, 176, 221);
-  box-shadow: 1px 1px 5px black;
-  text-shadow: 1px 1px 2px black;
+  background-color: rgba(127, 176, 221,0.3);
+  box-shadow: 0px 0px 3px black;
   padding: 6px;
   margin-top: 5px;
   font-size: medium;
   font-weight: bold;
   line-height: 15px;
   height: auto;
+  width: 150px;
   border-radius: 5px;
   z-index: 10;
 }
 .data {
-  /* background: rgba(255, 255, 255, 0.2);
-  box-shadow: inset 1px 1px 3px black;
-  border-radius: 5px;
-  margin-top: -6px; */
   padding: 2px;
   margin: 1px;
   font-weight: 600;

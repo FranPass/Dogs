@@ -103,7 +103,7 @@ export default function CreateForm() {
         <form className={style.containerForm}>
             <div className={style.dog}>
                 <div className={style.dogInfo}>
-                    <label htmlFor="name"> <h3>Name</h3> </label>
+                    <label htmlFor="name"> <h3>Breed Name</h3> </label>
                     <input
                         className={style.inputName}
                         value={dogData.name}
@@ -118,9 +118,9 @@ export default function CreateForm() {
                         name="image"
                         type="text"
                         onChange={handleChange}
-                        placeholder="Insert url of image"
+                        placeholder="Insert url of image..."
                     />
-                    {["Height", "Weight", "Life Span"].map((e, index) => {
+                    {["Height (cm)", "Weight (kg)", "Life Span (years)"].map((e, index) => {
                         return (
                             <div key={index}>
                                 <h3>{e}</h3>
