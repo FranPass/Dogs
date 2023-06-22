@@ -79,6 +79,9 @@ export default function CreateForm() {
                         type="text"
                         onChange={handleChange}
                     />
+                    {errors.name 
+                    ? <p className={style.errors}>{errors.name}</p> 
+                    : ''}
                     </label>
                     <label htmlFor="image"> <h3>Image</h3> 
                     <input
@@ -89,6 +92,9 @@ export default function CreateForm() {
                         onChange={handleChange}
                         placeholder="Insert url of image..."
                     />
+                    {errors.image 
+                        ? <p className={style.errors}>{errors.image}</p> 
+                        : ''}
                     </label>
                     {inputValues('Height', 'cm', style, dogData, handleChange, errors)}
                     {inputValues('Weight', 'kg', style, dogData, handleChange, errors)}
