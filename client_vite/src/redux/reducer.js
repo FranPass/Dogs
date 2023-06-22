@@ -1,5 +1,8 @@
-import { PREVIOUS_PAGE, FOUND_DOGS, NEXT_PAGE, CURRENT_PAGE, SET_ALL_DOGS, SET_ALL_TEMPERAMENTS, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENTS, ORDER_BY_WEIGHT, ORDER_BY_NAME } from "./actions";
-
+import { SET_ALL_DOGS, SET_ALL_TEMPERAMENTS, FOUND_DOGS,  } from "./search_actions"
+import { PREVIOUS_PAGE, NEXT_PAGE, CURRENT_PAGE } from "./pagination_actions" 
+import { FILTER_BY_TEMPERAMENTS, FILTER_BY_ORIGIN } from "./filter_actions"
+import { ORDER_BY_NAME, ORDER_BY_WEIGHT } from "./sort_actions"
+ 
 const initialState = {
     allDogs: [],
     filteredDogs: [],

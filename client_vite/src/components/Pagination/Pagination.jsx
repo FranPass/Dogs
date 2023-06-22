@@ -1,5 +1,5 @@
 import style from "./Pagination.module.css";
-import { nextPage, previousPage, setCurrentPage } from "../../redux/actions";
+import { nextPage, previousPage, setCurrentPage } from "../../redux/pagination_actions";
 import { useDispatch, useSelector} from 'react-redux'
 
 export default function Pagination ({ numOfDogs, dogsPerPage, }) {

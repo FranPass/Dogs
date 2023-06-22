@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
-import { setAllTemperaments } from "../../redux/actions";
+import { setAllTemperaments } from "../../redux/search_actions";
 import style from "./CreateForm.module.css";
 import validation from "./validation";
 

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css";
-import { findDogs } from "../../redux/actions";
+import { findDogs } from "../../redux/search_actions";
 import { useEffect, useState } from "react";
 
 export default function SearchBar() {

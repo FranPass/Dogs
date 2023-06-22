@@ -1,12 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-    filterByTemperaments,
-    setAllTemperaments,
-    orderByName,
-    orderByWeight,
-    filterByOrigin,
-} from "../../redux/actions.js";
+import { setAllTemperaments } from "../../redux/search_actions.js";
+import { filterByTemperaments, filterByOrigin } from "../../redux/filter_actions.js";
+import { orderByName, orderByWeight } from "../../redux/sort_actions.js";
 import style from "./Filters.module.css";
 
 export default function Filters() {
@@ -20,14 +16,14 @@ export default function Filters() {
     const handleFilter = (event) => {
         dispatch(filterByTemperaments(event.target.value));
     };
+    const handleOriginFilter = (event) => {
+        dispatch(filterByOrigin(event.target.value));
+    };
     const handleOrder = (event) => {
         dispatch(orderByName(event.target.value));
     };
     const handleWeightOrder = (event) => {
         dispatch(orderByWeight(event.target.value));
-    };
-    const handleOriginFilter = (event) => {
-        dispatch(filterByOrigin(event.target.value));
     };
 
     return (
