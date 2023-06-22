@@ -1,25 +1,27 @@
-const inputValues = (titulo, unidad, style, dogData, handleChange, errors) => {
+const inputValues = (titulo, unidad, style, dogData, auxData, handleChange, errors) => {
+    const min_value = `min_${titulo.toLowerCase().replace(" ", "_")}`;
+    const max_value = `max_${titulo.toLowerCase().replace(" ", "_")}`;
     return (
         <div>
                 <h3>{titulo} [{unidad}]</h3>
                 <div className={style.inputNums}>
                     <div>
-                    <label htmlFor={`min_${titulo.toLowerCase().replace(" ", "_")}`}> Min: 
+                    <label htmlFor={min_value}> Min: 
                     <input 
-                            value={dogData[`min_${titulo.toLowerCase().replace(" ", "_")}`]}
-                            name={`min_${titulo.toLowerCase().replace(" ", "_")}`}
+                            value={dogData[min_value]}
+                            name={min_value}
                             type="number" 
                             onChange={handleChange}/>
                     </label>
                     </div>
                     <div>
-                    <label htmlFor={`max_${titulo.toLowerCase().replace(" ", "_")}`}> Max: 
+                    <label htmlFor={max_value}> Max: 
                     <input 
-                            value={dogData[`max_${titulo.toLowerCase().replace(" ", "_")}`]}
-                            name={`max_${titulo.toLowerCase().replace(" ", "_")}`}
+                            value={dogData[max_value]}
+                            name={max_value}
                             type="number" 
                             onChange={handleChange}
-                            disabled={dogData[`min_${titulo.toLowerCase().replace(" ", "_")}`] === ''}/>
+                            disabled={auxData[min_value] === '' || auxData[min_value] === undefined}/>
                     </label>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ export default function CreateForm() {
         }));
         setAuxData({
             ...auxData,
-            [event.target.name]: event.target.value,
+            temperaments:  [...dogData.temperaments, temp]
         })
         setDogData({
             ...auxData,
@@ -46,7 +46,7 @@ export default function CreateForm() {
         }));
         setAuxData({
             ...auxData,
-            [event.target.name]: event.target.value,
+            temperaments:  [...newTemperaments]
         })
         setDogData({
             ...auxData,
@@ -109,9 +109,9 @@ export default function CreateForm() {
                         ? <p className={style.errors}>{errors.image}</p> 
                         : ''}
                     </label>
-                    {inputValues('Height', 'cm', style, dogData, handleChange, errors)}
-                    {inputValues('Weight', 'kg', style, dogData, handleChange, errors)}
-                    {inputValues('Life span', 'years', style, dogData, handleChange, errors)}
+                    {inputValues('Height', 'cm', style, dogData, auxData, handleChange, errors)}
+                    {inputValues('Weight', 'kg', style, dogData, auxData, handleChange, errors)}
+                    {inputValues('Life span', 'years', style, dogData, auxData, handleChange, errors)}
                 </div>
                 <div className={style.temperaments}>
                     <div className={style.titulo}>
