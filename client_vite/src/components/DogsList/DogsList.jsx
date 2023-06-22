@@ -5,7 +5,7 @@ import style from "./DogsList.module.css";
 
 export default function DogsList() {
     const filteredDogs = useSelector((state) => state.filteredDogs)
-    const currentPage = useSelector((state) => state.currentPage)    
+    const currentPage = useSelector((state) => state.currentPage)
 
     const dogsPerPage = 8;
     const numOfDogs = filteredDogs.length

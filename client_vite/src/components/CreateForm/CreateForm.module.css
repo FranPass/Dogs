@@ -1,47 +1,46 @@
 .containerForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     color: black;
     text-align: center;
-    font-size: large;
-    background-color: rgb(255, 244, 215);
+    background-color: rgb(255, 244, 215, 0.7);
     margin: auto;
     margin-top: 10px;
     height: auto;
-    width: 900px;
+    max-width: 850px;
     border-radius: 20px;
     box-shadow: 2px 2px 10px rgb(0, 0, 0); 
+    overflow: hidden;
+    padding: 8px;
 }
 .containerForm h3 {
+    width: 300px;
     margin: 11px;
-    margin-top: 22px;
-    background: bisque;
+    margin-top: 15px;
+    background: rgb(255, 228, 196);
     box-shadow: 0px 1px 3px black;
     border-radius: 5px;
     font-size: medium;
 }
 .dog {
-    width: inherit;
-    background-image: url('silueta_dog.png');
-    background-repeat: no-repeat;
-    background-position: 49% 60%;
-    background-size: 20%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .dogInfo {
+    margin-top: 5px;
     width: 350px;
     margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 .dogInfo input {
     height: 25px;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px rgb(0, 0, 0); 
-    border: none;
-    font-size: medium;
+    border: 1px solid gray;
+    font-size: small;
     font-weight: 500;
     padding-left: 10px;
 }
@@ -59,18 +58,19 @@
     justify-content: space-evenly; 
 }
 .inputNums input {
-    width: 40px;    
-    text-align: center;
+    width: 45px;    
+    text-align: left;
+    margin-left: 5px;
 }
 
 .temperaments {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 380px;
+    width: 350px;
 }
 .temperaments h3 {
-    width: 330px;
+    width: 300px;
     margin: 20px;
 }
 .temperamentsList {
@@ -118,6 +118,7 @@
     box-shadow: 1px 1px 3px black;
 }
 
+
 .submitbutton {
     padding: 0px 15px 0px 15px;
     margin: 10px;
@@ -133,4 +134,14 @@
     background: linear-gradient(0.25turn, #9c7676, bisque);
     transform: scale(1.4);
     z-index: 50;
+}
+.errors {
+    font-size: small;
+    font-weight: 400;
+    color: rgb(192, 0, 0);
+    margin: 2px;
+    padding: 0;
+    background: rgb(255, 203, 203);
+    width: 300px;
+    line-height: 14px;
 }
