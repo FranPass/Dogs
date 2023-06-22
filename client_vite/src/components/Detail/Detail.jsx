@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useSelector} from 'react-redux'
 import style from "./Detail.module.css";
 
@@ -35,6 +35,9 @@ export default function Detail() {
                     <p>Life span: {dog.life_span}</p>
                 </div>
             </div>
+            <NavLink to={"/home"}>
+                <button>Go back</button>
+            </NavLink>
         </div>
     );
 }
