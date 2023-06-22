@@ -18,7 +18,8 @@ const inputValues = (titulo, unidad, style, dogData, handleChange, errors) => {
                             value={dogData[`max_${titulo.toLowerCase().replace(" ", "_")}`]}
                             name={`max_${titulo.toLowerCase().replace(" ", "_")}`}
                             type="number" 
-                            onChange={handleChange}/>
+                            onChange={handleChange}
+                            disabled={dogData[`min_${titulo.toLowerCase().replace(" ", "_")}`] === ''}/>
                     </label>
                     </div>
                 </div>

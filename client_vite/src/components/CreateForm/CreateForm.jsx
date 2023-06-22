@@ -8,6 +8,7 @@ import inputValues from './inputValues'
 export default function CreateForm() {
     const allTemperaments = useSelector((state) => state.allTemperaments)
     const [errors, setErrors] = useState({});
+    const [auxData, setAuxData] = useState({})
     const [dogData, setDogData] = useState({
         name: '',
         image: '',
@@ -27,6 +28,10 @@ export default function CreateForm() {
             ...dogData,
             temperaments:  [...dogData.temperaments, temp]
         }));
+        setAuxData({
+            ...auxData,
+            [event.target.name]: event.target.value,
+        })
         setDogData({
             ...dogData,
             temperaments:  [...dogData.temperaments, temp]
@@ -39,6 +44,10 @@ export default function CreateForm() {
             ...dogData,
             temperaments:  [...newTemperaments]
         }));
+        setAuxData({
+            ...auxData,
+            [event.target.name]: event.target.value,
+        })
         setDogData({
             ...dogData,
             temperaments:  [...newTemperaments]
@@ -49,8 +58,12 @@ export default function CreateForm() {
             ...dogData,
             [event.target.name]: event.target.value,
         })
+        setAuxData({
+            ...auxData,
+            [event.target.name]: event.target.value,
+        })
         setErrors(validation({
-            ...dogData,
+            ...auxData,
             [event.target.name]: event.target.value,
         }));
     }
@@ -79,6 +92,9 @@ export default function CreateForm() {
                         type="text"
                         onChange={handleChange}
                     />
+                    {errors.name 
+                        ? <p className={style.errors}>{errors.name}</p> 
+                        : ''}
                     </label>
                     <label htmlFor="image"> <h3>Image</h3> 
                     <input
@@ -89,6 +105,9 @@ export default function CreateForm() {
                         onChange={handleChange}
                         placeholder="Insert url of image..."
                     />
+                    {errors.image 
+                        ? <p className={style.errors}>{errors.image}</p> 
+                        : ''}
                     </label>
                     {inputValues('Height', 'cm', style, dogData, handleChange, errors)}
                     {inputValues('Weight', 'kg', style, dogData, handleChange, errors)}
