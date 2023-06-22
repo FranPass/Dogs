@@ -33,7 +33,7 @@ export default function CreateForm() {
             [event.target.name]: event.target.value,
         })
         setDogData({
-            ...dogData,
+            ...auxData,
             temperaments:  [...dogData.temperaments, temp]
         });
     }
@@ -49,7 +49,7 @@ export default function CreateForm() {
             [event.target.name]: event.target.value,
         })
         setDogData({
-            ...dogData,
+            ...auxData,
             temperaments:  [...newTemperaments]
         });
     }
