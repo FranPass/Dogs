@@ -69,10 +69,9 @@ export default function CreateForm() {
     }
     const handleSubmit = async (event) => {
         event.preventDefault()
-        const URL = 'http://localhost:3001/dogs'
         if(!dogData.temperaments.length) return window.alert('Complete all the fields correctly');
         if (!Object.keys(errors).length) {
-            const {data} = await axios.post(URL, dogData);
+            const {data} = await axios.post('/dogs', dogData);
             if (!data.created) return window.alert(data.successResponse)
             setDogData(data.dogDataEmpty)
             return window.alert(data.successResponse)
