@@ -2,7 +2,10 @@ const validation = function(data) {
     const errors = {};
     const {name, image, min_height, max_height, min_weight, max_weight, min_life_span, max_life_span, temperaments} = data;
     
-    if(name.length > 100 || name.length < 2){
+    if (!name) {
+        errors.name = 'Please enter the breed name'
+    }
+    else if(name.length > 100){
         errors.name = 'The name must have less than 100 letters'
     }
     else if (/\d/.test(name)) {
