@@ -1,21 +1,33 @@
-.container {
+.detailContainer {
     display: flex;
-    margin: auto;
-    margin-top: 50px;
-    width: 900px;
-    height: 300px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px;
+    margin-top: 20px;
+    width: auto;
+    max-width: 900px;
+    height: fit-content;
     overflow: hidden;
-    background-color: whitesmoke;
     box-shadow: 1px 1px 7px rgb(0, 0, 0);
     border-radius: 15px;
+    background-color: rgb(255, 244, 215);    
 }
 
 .image {
     position: relative;
-    float: left;
     box-shadow: 1px 1px 5px rgb(0, 0, 0);
+    width: auto;
+    max-width: 500px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
-
 .id {
     position: absolute;
     bottom: 0;
@@ -27,45 +39,47 @@
     font-size: smaller;
     background: linear-gradient(rgba(255,255,255,0),rgba(0,0,0,0.7));
 }
-
 .image img{
-    float: left;
     flex: 2 1 0%;
     object-fit: cover;
-    width: 100%;
-    max-width: 500px;
-    height: 300px;
+    max-height: 400px;
 }
 
 .description {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     padding: 25px;
-    float: left;
+    margin-top: -10px;
     flex: 3 1 0%;
-    padding-left: 16px;
-    line-height:26px;
-    text-align: left;
     color: black;
     overflow-wrap: break-word;
 }
 .description h2 {
-    color: rgb(255, 255, 255);
-    background-color: rgba(127, 176, 221);
+    background-color: bisque;
     box-shadow: 1px 1px 5px black;
-    text-shadow: 1px 1px 2px black;
-    padding: 12px;
+    padding: 8px;
     font-size: 1.5rem;
     font-weight: bold;
-    line-height: 15px;
-    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    border: 1px solid rgb(255, 219, 142);
 }
-
 .description p {
     text-align: center;
     margin-top: 0;
     font-size: large;
     font-weight: bold;
+}
+
+.detailContainer button {
+    background-color: bisque;
+    color: black;
+    margin: 8px;
+    padding: 10px;
+    font-size:medium;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgb(128, 128, 128);
 }

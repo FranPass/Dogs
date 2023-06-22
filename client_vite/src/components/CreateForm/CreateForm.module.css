@@ -6,7 +6,7 @@
     color: black;
     text-align: center;
     font-size: large;
-    background: rgb(255, 255, 255);
+    background-color: rgb(255, 244, 215);
     margin: auto;
     margin-top: 10px;
     height: auto;
@@ -17,9 +17,10 @@
 .containerForm h3 {
     margin: 11px;
     margin-top: 22px;
-    background: rgba(127, 176, 221,0.7);
+    background: bisque;
     box-shadow: 0px 1px 3px black;
-    border-radius: 50px;
+    border-radius: 5px;
+    font-size: medium;
 }
 .dog {
     width: inherit;
@@ -47,6 +48,7 @@
 .dogInfo label {
     font-weight: 600;
     border-radius: 10px;
+    font-size: medium;
 }
 
 .inputName {
@@ -54,8 +56,7 @@
 }
 .inputNums {
     display: flex;
-    justify-content: space-evenly;   
-    font-size: large;
+    justify-content: space-evenly; 
 }
 .inputNums input {
     width: 40px;    
@@ -84,7 +85,7 @@
     flex-wrap: wrap;
     overflow-y: scroll;    
     box-shadow: inset 1px 1px 5px rgb(0, 0, 0); 
-    background: rgba(127, 176, 221,0.1);
+    background: bisque;
 }
 .selectedTemperamentsList {
     width: 330px;
@@ -99,11 +100,11 @@
     flex-wrap: wrap;
     overflow-y: scroll;
     box-shadow: inset 1px 1px 5px rgb(0, 0, 0); 
-    background: rgba(127, 176, 221,0.1);
+    background: bisque;
 }
 
 .temp {
-    background: linear-gradient(0.25turn, #d3d3d3, #c5c5c5);
+    background: linear-gradient(0.25turn, #d3d3d3, #a7a7a7);
     font-size: small;
     margin: 1px;
     padding: 0px 3px 1px 3px;
@@ -122,7 +123,7 @@
     margin: 10px;
     border-radius: 50px;
     box-shadow: 1px 1px 5px black;
-    background-color: rgb(253, 245, 234);
+    background-color: bisque;
     transition: transform 0.4s ease;
     border: none;
 }

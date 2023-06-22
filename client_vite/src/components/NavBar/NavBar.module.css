@@ -3,18 +3,20 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: rgb(255, 244, 215);
     color: #fff;
     position: sticky;
     top: 0;
     z-index: 50;
-    box-shadow: 1px 1px 5px black;
+    box-shadow: 1px 1px 10px black;
+    width: auto;
+    height: auto;
   }
   .navLinks {
-    margin: 6px;
+    margin: 1px;
   }
   .navLinks button {
-    background-color: rgb(255, 255, 255);
+    background-color: bisque;
     color: black;
     margin: 8px;
     padding: 5px;
