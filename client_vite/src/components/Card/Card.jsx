@@ -14,11 +14,13 @@ export default function Card({ id, name, image, temperament, weight }) {
                     <span className={style.title}>
                         {name}
                     </span>
-                    <p>Didn’t find the dog you were looking for?</p>
-                    <p>Consider creating one yourself!!</p>
-                    <NavLink to={`/create`}>
-                        <h2>Click here!</h2>
-                    </NavLink>
+                    <div className={style.data}>
+                        <p>Didn’t find the dog you were looking for?</p>
+                        <p>Consider creating one yourself!!</p>
+                        <NavLink to={`/create`}>
+                            <h2>Click here!</h2>
+                        </NavLink>
+                    </div>
                 </div>
             ) : (
                 <div className={style.description}>

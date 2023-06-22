@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { NavLink, useParams } from "react-router-dom";
+<<<<<<< HEAD
 import { useSelector } from "react-redux";
+=======
+import { useSelector} from 'react-redux'
+>>>>>>> 816249013cd33fc27271d9c417d1fc8c95349698
 import style from "./Detail.module.css";
 
 export default function Detail() {
@@ -25,7 +29,13 @@ export default function Detail() {
             <div className={style.cardContainer}>
                 <div className={style.image}>
                     <img src={dog.image} alt="" />
+<<<<<<< HEAD
                     <span className={style.id}>ID: {dog.id}</span>
+=======
+                    <span className={style.id}>
+                        ID: {dog.id}
+                    </span>
+>>>>>>> 816249013cd33fc27271d9c417d1fc8c95349698
                 </div>
                 <div className={style.description}>
                     <h2>Name: {dog.name}</h2>
