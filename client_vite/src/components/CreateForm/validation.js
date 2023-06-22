@@ -1,7 +1,6 @@
 const validation = function (data) {
     const errors = {};
-    // const {name, image, min_height, max_height, min_weight, max_weight, min_life_span, max_life_span, temperaments} = data;
-
+    
     if (data.name) {
         if (!data.name) {
             errors.name = "Please enter the breed name";
