@@ -15,7 +15,7 @@ const validation = function (data) {
         if (data.min_height < 8 || data.min_height > 1200) {
             errors.height = "The height must be between 8cm and 1200cm";
         } else if (
-            !(data.max_height < 1200 && data.max_height > data.min_height)
+            !(data.max_height > data.min_height && data.max_height < 1200)
         ) {
             errors.height =
                 "The maximum height must be greater than the minimum height and less than 1200cm";
@@ -25,7 +25,7 @@ const validation = function (data) {
         if (data.min_weight < 0.5 || data.min_weight > 100) {
             errors.weight = "The weight must be between 0.5kg and 100kg";
         } else if (
-            !(data.max_height < 100 && data.max_weight > data.min_weight)
+            !(data.max_weight > data.min_weight && data.max_height < 100)
         ) {
             errors.weight =
                 "The maximum weight must be greater than the minimum weight and less than 100kg";
@@ -36,8 +36,8 @@ const validation = function (data) {
             errors.life = "The life span must be between 4 years and 35 years";
         } else if (
             !(
-                data.max_life_span < 35 &&
-                data.max_life_span > data.min_life_span
+                data.max_life_span > data.min_life_span && 
+                data.max_life_span < 35
             )
         ) {
             errors.life =

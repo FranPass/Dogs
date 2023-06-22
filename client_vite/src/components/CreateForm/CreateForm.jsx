@@ -103,7 +103,7 @@ export default function CreateForm() {
                         name="image"
                         type="text"
                         onChange={handleChange}
-                        placeholder="Insert url of image..."
+                        placeholder="Insert url of image (or leave it empty)"
                     />
                     {errors.image 
                         ? <p className={style.errors}>{errors.image}</p> 
