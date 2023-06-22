@@ -10,29 +10,26 @@ const validation = function (data) {
             errors.name = "The name cannot contain numbers";
         }
     }
-
     if (data.min_height || data.max_height) {
-        if (data.min_height < 8 || data.min_height > 1200) {
-            errors.height = "The height must be between 8cm and 1200cm";
-        } else if (data.max_height < 8 || data.max_height > 1200) {
-            errors.height = "The height must be between 8cm and 1200cm";
-        } else if (data.max_height < data.min_height) {
+        if (Number(data.min_height) < 8 || Number(data.min_height) > 1200) {
+            errors.height = "The height must be between 0.5kg and 100kg";
+        } else if (Number(data.max_height) < Number(data.min_height)) {
             errors.height =
                 "The maximum height must be greater than the minimum height";
         }
     }
     if (data.min_weight || data.max_weight) {
-        if (data.min_weight < 0.5 || data.min_weight > 100) {
+        if (Number(data.min_weight) < 0.5 || Number(data.min_weight) > 100) {
             errors.weight = "The weight must be between 0.5kg and 100kg";
-        } else if (data.max_weight < data.min_weight) {
+        } else if (Number(data.max_weight) < Number(data.min_weight)) {
             errors.weight =
                 "The maximum weight must be greater than the minimum weight";
         }
     }
     if (data.min_life_span || data.max_life_span) {
-        if (data.min_life_span < 4 || data.min_life_span > 35) {
+        if (Number(data.min_life_span) < 4 || Number(data.min_life_span) > 35) {
             errors.life = "The life span must be between 4 years and 35 years";
-        } else if (data.max_life_span < data.min_life_span) {
+        } else if (Number(data.max_life_span) < Number(data.min_life_span)) {
             errors.life =
                 "The maximum life span must be greater than the minimum life span";
         }
