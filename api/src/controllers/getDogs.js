@@ -39,13 +39,13 @@ const getDogs = async (req, res) => {
         const {name} = req.query;
         if (name) {
             const dogsByName = allDogs.filter( dog => (dog.name).toLowerCase().includes(name.toLowerCase()) )
-            if (!dogsByName.length) return res.status(200).json([{
+            if (!dogsByName.length) return res.json([{
                 id: '',
                 image: 'https://www.pawmaw.com/pawmaw/img/home/promo-shape-3.png',
                 name: 'Dog not found',
-                weight: '---',
-                height: '---',
-                life_span: '---',
+                weight: '',
+                height: '',
+                life_span: '',
                 temperament: [],
             }])
             return res.json(dogsByName)

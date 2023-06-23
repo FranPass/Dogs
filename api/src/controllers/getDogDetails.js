@@ -5,13 +5,11 @@ const { API_KEY } = process.env;
 const headers = { "x-api-key": API_KEY };
 
 const getDogDetails = async (req, res) => {
-    const { id } = req.params;
-
-    const regexExpUUID =
-        /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
-
-    if (regexExpUUID.test(id)) {
-        try {
+    try {
+        const { id } = req.params;
+        const regexExpUUID =
+            /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/gi;
+        if (regexExpUUID.test(id)) {
             let dog = await Dog.findOne({ 
                 where: { id },
                 include: {
@@ -23,28 +21,24 @@ const getDogDetails = async (req, res) => {
             });
             dog.dataValues.temperaments = dog.temperaments.map(temp => (temp.name)).join(', ')
             return res.json(dog);
-        } catch (error) {
-            return res.status(500).send(error.message)
         }
-    }
-
-    try {
         const {data} = await axios.get(`${URL}`, { headers });
-        const findDog = data.find((dog) => dog.id === Number(id));
-        if (!findDog)
-            return res.status(404).json({error: "No existe ningun perro con ese id"});
-        const foundDog = {
+        const dogData = data.find((dog) => dog.id === Number(id));
+        const dog = {
             id: id,
-            image: findDog.image.url,
-            name: findDog.name,
-            weight: findDog.weight.metric,
-            height: findDog.height.metric,
-            life_span: findDog.life_span,
-            temperaments: findDog.temperament,
+            image: dogData.image.url,
+            name: dogData.name,
+            weight: dogData.weight.metric,
+            height: dogData.height.metric,
+            life_span: dogData.life_span,
+            temperaments: dogData.temperament,
         };
-        return res.json(foundDog);
+        return res.json(dog);
     } catch (error) {
-        return res.status(500).send(error.message);
+        return res.status(404).json({
+            image: 'https://digitalsynopsis.com/wp-content/uploads/2016/12/http-status-codes-dogs-404.jpg',
+            title: 'Dog not found'
+        });
     }
 };
 
