@@ -1,6 +1,4 @@
-import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setAllTemperaments } from "../../redux/search_actions.js";
 import { filterByTemperaments, filterByOrigin } from "../../redux/filter_actions.js";
 import { orderByName, orderByWeight } from "../../redux/sort_actions.js";
 import style from "./Filters.module.css";
@@ -9,11 +7,7 @@ export default function Filters() {
     const dispatch = useDispatch();
     const allTemperaments = useSelector((state) => state.allTemperaments);
 
-    useEffect(() => {
-        dispatch(setAllTemperaments());
-    }, [dispatch]);
-
-    const handleFilter = (event) => {
+    const handleTemperamentFilter = (event) => {
         dispatch(filterByTemperaments(event.target.value));
     };
     const handleOriginFilter = (event) => {
@@ -34,7 +28,7 @@ export default function Filters() {
                     <option value="original">Originals</option>
                     <option value="created">Created</option>
                 </select>
-                <select onChange={handleFilter}>
+                <select onChange={handleTemperamentFilter}>
                     <option value="all">All temperaments</option>
                     {allTemperaments.map((temp) => {
                         return (

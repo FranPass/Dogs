@@ -25,7 +25,7 @@ export const findDogs = (name) => {
                 type: FOUND_DOGS,
                 payload: [...data]
             })
-        }, )
+        })
     }
 }
 export const setAllTemperaments = () => {

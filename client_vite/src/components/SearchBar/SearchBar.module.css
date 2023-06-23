@@ -12,5 +12,15 @@
     box-shadow: inset 1px 1px 4px;
     border-radius: 5px;
     height: 26px;
-    width: 280px;
+    width: 200px;
 }
+.search button {
+    background-color: bisque;
+    color: black;
+    margin: 4px;
+    padding: 3px;
+    font-size:medium;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px black;
+  }

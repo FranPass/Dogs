@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import style from "./SearchBar.module.css";
 import { findDogs } from "../../redux/search_actions";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function SearchBar() {
     const dispatch = useDispatch();
@@ -11,9 +11,10 @@ export default function SearchBar() {
         setName(event.target.value)
     }
 
-    useEffect(() => {
+    const onClick = () => {
         dispatch(findDogs(name))
-    }, [name, dispatch])
+    }
+  
     return (
         <div className={style.search}>
             <input
@@ -23,6 +24,7 @@ export default function SearchBar() {
                 placeholder="Search dog..."
                 className={style.searchBar}
             />
+            <button onClick={onClick}>{name ? 'Search' : 'Reset'}</button>
         </div>
     );
 }

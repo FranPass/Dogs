@@ -6,9 +6,9 @@ import { ORDER_BY_NAME, ORDER_BY_WEIGHT } from "./sort_actions"
 const initialState = {
     allDogs: [],
     filteredDogs: [],
-    foundDogs: [],
+    auxDogs: [],
     allTemperaments: [],
-    currentPage: 1
+    currentPage: 1,
 }
 
 const reducer = (state=initialState, action) => {
@@ -17,7 +17,8 @@ const reducer = (state=initialState, action) => {
             return {
                 ...state,
                 allDogs: action.payload,
-                filteredDogs: action.payload
+                filteredDogs: action.payload,
+                auxDogs: action.payload
             }
 
         case FOUND_DOGS:
@@ -55,19 +56,20 @@ const reducer = (state=initialState, action) => {
                 ...state,
                 filteredDogs: 
                 action.payload === 'all'
-                ? state.allDogs
-                : state.filteredDogs.filter(dog => (dog.temperament || '').split(", ").includes(action.payload))
+                    ? state.allDogs
+                    : state.filteredDogs.filter(dog => (dog.temperament || '').includes(action.payload)), 
             }
         
         case FILTER_BY_ORIGIN:
             return {
                 ...state,
+                auxDogs: [...state.filteredDogs],
                 filteredDogs: 
                 action.payload === 'all'
                 ? state.allDogs
                 : action.payload === 'created'
-                    ? state.filteredDogs.filter( dog => isNaN(Number(dog.id)))
-                    : state.filteredDogs.filter( dog => !isNaN(Number(dog.id)))
+                    ? state.auxDogs.filter( dog => isNaN(Number(dog.id)))
+                    : state.auxDogs.filter( dog => !isNaN(Number(dog.id)))
             }
         
         case ORDER_BY_NAME:
