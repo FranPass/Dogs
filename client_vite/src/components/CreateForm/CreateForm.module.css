@@ -128,12 +128,16 @@
     transition: transform 0.4s ease;
     border: none;
 }
-.submitbutton:hover {
+.submitbutton:hover:enabled {
     box-shadow: 1px 1px 10px black;
     background-color: bisque;
     background: linear-gradient(0.25turn, #9c7676, bisque);
     transform: scale(1.4);
     z-index: 50;
+}
+.submitbutton:disabled {
+    box-shadow: none;
+
 }
 .errors {
     font-size: small;

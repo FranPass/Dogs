@@ -37,7 +37,7 @@ export default function CreateForm() {
             temperaments:  [...dogData.temperaments, temp]
         });
     }
-    const eraseTemperament = (event) => {
+    const handleSelectedTemperaments = (event) => {
         event.preventDefault();
         const newTemperaments = dogData.temperaments.filter(e => e.id !== Number(event.target.value))
         setErrors(validation({
@@ -69,14 +69,14 @@ export default function CreateForm() {
     }
     const handleSubmit = async (event) => {
         event.preventDefault()
-        if(!dogData.temperaments.length) return window.alert('Complete all the fields correctly');
-        if (!Object.keys(errors).length) {
+        try {
             const {data} = await axios.post('/dogs', dogData);
             if (!data.created) return window.alert(data.successResponse)
             setDogData(data.dogDataEmpty)
             return window.alert(data.successResponse)
+        } catch (error) {
+            return window.alert(error.response.data.successResponse);
         }
-        return window.alert('Complete all the fields correctly');
     }
     
     return (
@@ -138,7 +138,7 @@ export default function CreateForm() {
                                     className={style.temp} 
                                     key={e.id} 
                                     value={e.id} 
-                                    onClick={eraseTemperament}
+                                    onClick={handleSelectedTemperaments}
                                     >
                                     {e.name}
                                 </button>
@@ -146,7 +146,17 @@ export default function CreateForm() {
                         })}
                     </div>
                     <p className={style.errors}>{errors.temperaments}</p>
-                    <button className={style.submitbutton} type="submit" onClick={handleSubmit}>
+                    <button 
+                        className={style.submitbutton} 
+                        type="submit" 
+                        onClick={handleSubmit}
+                        disabled={
+                            !dogData.name || 
+                            !dogData.min_height || 
+                            !dogData.min_weight || 
+                            !dogData.min_life_span || 
+                            !dogData.temperaments.length || 
+                            Object.keys(errors).length}>
                         <h1>Create your own dog!</h1>
                     </button>
                 </div>

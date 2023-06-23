@@ -1,6 +1,7 @@
 const inputValues = (titulo, unidad, style, dogData, auxData, handleChange, errors) => {
     const min_value = `min_${titulo.toLowerCase().replace(" ", "_")}`;
     const max_value = `max_${titulo.toLowerCase().replace(" ", "_")}`;
+    const value = `${titulo.toLowerCase().replace(" ", "_")}`;
     return (
         <div>
                 <h3>{titulo} [{unidad}]</h3>
@@ -25,8 +26,8 @@ const inputValues = (titulo, unidad, style, dogData, auxData, handleChange, erro
                     </label>
                     </div>
                 </div>
-            {errors[titulo.split(' ',1)[0].toLowerCase()] 
-            ? <p className={style.errors}>{errors[titulo.split(' ',1)[0].toLowerCase()]}</p> 
+            {errors[value] 
+            ? <p className={style.errors}>{errors[value]}</p> 
             : ''}
         </div>
     )

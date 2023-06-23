@@ -41,7 +41,8 @@
 }
 .image img{
     flex: 2 1 0%;
-    object-fit: cover;
+    object-fit: contain;
+    /* object-fit: cover; */
     max-height: 400px;
 }
 

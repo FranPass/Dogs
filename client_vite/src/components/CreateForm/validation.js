@@ -28,9 +28,9 @@ const validation = function (data) {
     }
     if (data.min_life_span || data.max_life_span) {
         if (Number(data.min_life_span) < 4 || Number(data.min_life_span) > 35) {
-            errors.life = "The life span must be between 4 years and 35 years";
+            errors.life_span = "The life span must be between 4 years and 35 years";
         } else if (Number(data.max_life_span) < Number(data.min_life_span)) {
-            errors.life =
+            errors.life_span =
                 "The maximum life span must be greater than the minimum life span";
         }
     }
