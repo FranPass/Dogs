@@ -12,7 +12,7 @@ const validation = function (data) {
     }
     if (data.min_height || data.max_height) {
         if (Number(data.min_height) < 8 || Number(data.min_height) > 1200) {
-            errors.height = "The height must be between 0.5kg and 100kg";
+            errors.height = "The height must be between 8cm and 1200cm";
         } else if (Number(data.max_height) < Number(data.min_height)) {
             errors.height =
                 "The maximum height must be greater than the minimum height";

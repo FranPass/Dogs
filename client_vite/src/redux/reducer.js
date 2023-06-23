@@ -24,7 +24,8 @@ const reducer = (state=initialState, action) => {
         case FOUND_DOGS:
             return {
                 ...state,
-                filteredDogs: action.payload
+                filteredDogs: action.payload,
+                currentPage: 1
             }
             
         case SET_ALL_TEMPERAMENTS:
@@ -58,6 +59,7 @@ const reducer = (state=initialState, action) => {
                 action.payload === 'all'
                     ? state.allDogs
                     : state.filteredDogs.filter(dog => (dog.temperament || '').includes(action.payload)), 
+                currentPage: 1,
             }
         
         case FILTER_BY_ORIGIN:
@@ -69,7 +71,8 @@ const reducer = (state=initialState, action) => {
                 ? state.allDogs
                 : action.payload === 'created'
                     ? state.auxDogs.filter( dog => isNaN(Number(dog.id)))
-                    : state.auxDogs.filter( dog => !isNaN(Number(dog.id)))
+                    : state.auxDogs.filter( dog => !isNaN(Number(dog.id))),
+                currentPage: 1
             }
         
         case ORDER_BY_NAME:
@@ -86,7 +89,8 @@ const reducer = (state=initialState, action) => {
                     : [...state.filteredDogs].sort((a,b) => {
                         if (a.name > b.name) return -1
                         if (a.name < b.name) return 1
-                    })
+                    }),
+                currentPage: 1
             }
         
         case ORDER_BY_WEIGHT:
@@ -121,7 +125,8 @@ const reducer = (state=initialState, action) => {
                                 const bWeight = b.weight.split(' - ').map(num => Number(num)).filter( num => !isNaN(num))
                                 if (aWeight[0] < bWeight[0]) return 1;
                                 if (aWeight[0] > bWeight[0]) return -1;
-                            })
+                            }),
+                currentPage: 1
             }
         
         default:
